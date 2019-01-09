@@ -1,6 +1,6 @@
 <template>
   <div class="menu-list">
-    <v-list-tile to="/">
+    <v-list-tile to="/about">
       <v-list-tile-action>
         <!-- <router-link to="/"> -->
           <v-icon>home</v-icon>
