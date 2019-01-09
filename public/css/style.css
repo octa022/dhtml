@@ -1,0 +1,74 @@
+.menu-list a {
+  color: #777777 !important   
+}
+
+
+/* Fonts:
+ * 
+ * font-family: 'ZCOOL KuaiLe', cursive;
+ * font-family: 'Pacifico', cursive;
+ */
+.font-pacifico {
+  font-family: 'Pacifico', cursive;
+}
+.font-zcool {
+  font-family: 'ZCOOL KuaiLe', cursive;
+}
+.main-title {
+ font-family: 'Pacifico', cursive;
+ font-size: 48px;
+/* -webkit-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+  -o-transition: -o-transform .4s ease-in-out;
+  transition: transform .4s ease-in-out;*/
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+}
+.main-title::first-letter {
+  font-size: 10rem;
+}
+
+.main-title+p {
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+  -o-transition: -o-transform .4s ease-in-out;
+  transition: transform .4s ease-in-out;
+  -webkit-animation: color 4s infinite;
+  animation: color 4s infinite;
+}
+.main-title+p:hover {
+  -webkit-transform: rotate(350deg);
+  -ms-transform: rotate(350deg);
+  -o-transform: rotate(350deg);
+  transform: rotate(360deg); 
+}
+@keyframes pulse {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes color {
+  0%   {color:red;}
+  25%  {color:yellow;}
+  50%  {color:blue;}
+  75%  {color:green;}
+  100% {color:red;}
+}
+@keyframes color {
+  0%   {color:red;}
+  25%  {color:yellow;}
+  50%  {color:blue;}
+  75%  {color:green;}
+  100% {color:red;}
+}
