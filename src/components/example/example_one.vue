@@ -4,6 +4,7 @@
             <h3>Hello World!</h3>
             <p>{{ top }} х {{ left }} </p>
             <p>{{ width }} х {{ height }}</p>
+            <!-- https://vuejsexamples.com/vue-component-for-draggable-and-resizable-elements/ -->
         </VueDragResize>
     </div>
 </template>
