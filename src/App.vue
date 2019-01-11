@@ -15,7 +15,7 @@
     <!-- End - Navigation Control -->
     
     <!-- Nav -->
-    <v-toolbar app fixed clipped-left class="grey darken-2                                         white--text">
+    <v-toolbar app fixed clipped-left class="grey darken-2 white--text">
       <v-btn flat icon to='/' outline color="transparent">
         <v-avatar 
           :size="$vuetify.breakpoint.name === 'sm' || $vuetify.breakpoint.name === 'xs' ? 36 : 50" color="grey lighten-3"
