@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import prueba from './components/prueba/prueba.vue';
+import example1 from './components/prueba/prueba.vue';
+
 
 
 Vue.use(Router)
@@ -26,6 +28,11 @@ export default new Router({
       path: '/prueba',
       name: 'prueba',
       component: prueba
+    },
+    {
+      path: '/example1',
+      name: 'example1',
+      component: example1
     },
   ]
 })

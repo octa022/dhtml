@@ -32,5 +32,27 @@
         </v-list-tile-title>
       </v-list-tile-content>
     </v-list-tile>
-  </div>
+    <v-list>
+      <v-list-group
+        prepend-icon="home"
+        no-action
+      >
+        <v-list-tile slot="activator">
+          <v-list-tile-content>
+            <v-list-tile-title>Ejemplos</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-tile to="/example1">
+          <v-list-tile-content>
+            <v-list-tile-title>1</v-list-tile-title>
+          </v-list-tile-content>
+
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+        </v-list-tile>
+      </v-list-group>
+    </v-list>
+</div>
 </template>
