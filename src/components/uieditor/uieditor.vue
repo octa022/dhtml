@@ -1,15 +1,22 @@
 <script>
 import toolbar from "../tools/toolbar.vue"
+import footer from "../tools/footer.vue"
 export default {
   data(){
     return {
       comps:[
+        // {
+        //   tag:"h1",
+        //   options:{
+        //     domProps: {
+        //       innerHTML:'Hola pajudito'
+        //     }
+        //   }
+        // },
         {
-          tag:"h1",
+          tag:footer,
           options:{
-            domProps: {
-              innerHTML:'Hola pajudito'
-            }
+            ref:'myfooter'
           }
         },
         {
@@ -17,7 +24,15 @@ export default {
           options:{
             ref:'mytoolbar'
           }
-        }
+        },
+        {
+          tag:"h1",
+          options:{
+            domProps: {
+              innerHTML:'Hola SINIORES'
+            }
+          }
+        },
       ]
     }
   },
@@ -28,17 +43,17 @@ export default {
   },
   mounted(){
     this.$createElement('h4',"desde la instancia")
-    console.log(this,'this',this.$vuetify,'vuetify')
-    this.comps.push(
-    {
-      tag:"h1",
-      options:{
-        class:'text-md-center',
-        domProps: {
-          innerHTML:'Que mira pajudito'
-        }
-      }
-    })
+    // console.log(this,'this',this.$vuetify,'vuetify')
+    // this.comps.push(
+    // {
+    //   tag:"h1",
+    //   options:{
+    //     class:'text-md-center',
+    //     domProps: {
+    //       innerHTML:'Que mira pajudito'
+    //     }
+    //   }
+    // })
   }
 }
 </script>
