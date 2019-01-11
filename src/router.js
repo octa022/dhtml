@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import example1 from './components/example/ExampleOne.vue'
-import example2 from './components/example/ExampleTwo'
 import prueba from './components/prueba/prueba.vue'
-
-
+import example1 from './components/prueba/prueba.vue'
+import example2 from './components/example/ExampleTwo'
+import ui from './components/uieditor/uieditor.vue'
 
 Vue.use(Router)
 
@@ -40,5 +39,10 @@ export default new Router({
       name: 'example2',
       component: example2
     },
+    {
+      path: '/create',
+      name: 'create',
+      component: ui
+    }
   ]
 })
