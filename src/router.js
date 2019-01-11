@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import prueba from './components/prueba/prueba.vue';
-import example1 from './components/prueba/prueba.vue';
+import example1 from './components/example/ExampleOne.vue'
+import example2 from './components/example/ExampleTwo'
+import prueba from './components/prueba/prueba.vue'
 
 
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/example1',
       name: 'example1',
       component: example1
+    },
+    {
+      path: '/example2',
+      name: 'example2',
+      component: example2
     },
   ]
 })

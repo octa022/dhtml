@@ -1,32 +1,8 @@
 <template>
-  <div id="prueba">
-    <v-btn color="success" @click="items++">Agregar</v-btn>
-    <v-btn color="red"  @click="items = Math.max(0, items-1)">Borrar</v-btn>
-    <br><br>
-    <v-layout row wrap v-for="item in items" :key="item">
-      * {{item}}
-    </v-layout>
-    <p v-for="item in items" :key="item">
-      * {{item}}
-      <button>x</button>
-    </p>
-
-    <div @click="openMenu()">
-      <v-btn color="orange" v-on:click.left="counter += 1">Agregar 1</v-btn>
-      
-      <p>The button above has been clicked {{ counter }} times.</p>
-    </div>
-
-    <ul  v-if="viewMenu" >
-        <li>First list item</li>
-        <li>Second list item</li>
-    </ul>
-
-   
-
-    <v-layout row wrap v-for="(item, index) in containers" :key="item" style="position:relative">
+  <v-container>
+    <v-layout row wrap v-for="(item, index) in containers" :key="item" style="position:relative" class="px-3  ">
       <!-- <v-btn @click="deleteContainer(index)">X</v-btn> -->
-      <v-flex sm8 class="pl-5">
+      <v-flex sm8>
         * {{item.name}} {{index}}
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint assumenda, enim eius est ab. Consequuntur ex ut facilis maxime, labore sunt animi aliquid ullam ipsum, voluptate tempora minus consequatur rem.
       </v-flex>
@@ -51,23 +27,18 @@
         </v-card>
       </v-flex>
 
-      <button @click="deleteContainer(index)" style="position:absolute;right:0;top:0px">x</button>
+      <button @click="deleteContainer(index)" style="position:absolute;right:0px;top:0px">x</button>
     </v-layout>
 
-     <v-btn color="success" @click="addContent">Agregar</v-btn>
+    <v-btn color="success" @click="addContent" class="ma-5"  >Agregar</v-btn>
 
-  </div>
+  </v-container>
 </template>
 
 <script>
   export default {
     data(){
       return {
-        items:0,
-        counter:0,
-        viewMenu: false,
-        top: '0px',
-        left: '0px',
         containers:[],
         newContainer:0,
       }
@@ -84,4 +55,3 @@
       }
   }
 </script>
-
