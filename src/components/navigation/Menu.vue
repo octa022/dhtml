@@ -54,5 +54,20 @@
         </v-list-tile>
       </v-list-group>
     </v-list>
+
+    <v-list-tile @click.prevent="$emit('editPanel')">
+      <v-list-tile-action>
+          <v-icon>create</v-icon>
+      </v-list-tile-action>
+      <v-list-tile-content>
+        <v-list-tile-title>
+            <v-list-tile-title>
+              Editar
+            </v-list-tile-title>
+        </v-list-tile-title>
+      </v-list-tile-content>
+    </v-list-tile>
+
+  </div>
 </div>
 </template>

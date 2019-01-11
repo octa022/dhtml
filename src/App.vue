@@ -10,12 +10,12 @@
       $vuetify.breakpoint.name === 'xs' ? true : false"
       v-model="drawer"
       width='220'>
-      <menu_item/>
+      <menu_item @editPanel="drawerRight = !drawerRight, drawer = false"/>
     </v-navigation-drawer>
     <!-- End - Navigation Control -->
     
     <!-- Nav -->
-    <v-toolbar app fixed clipped-left class="grey darken-2 white--text">
+    <v-toolbar app fixed clipped-left clipped-right class="grey darken-2 white--text">
       <v-btn flat icon to='/' outline color="transparent">
         <v-avatar 
           :size="$vuetify.breakpoint.name === 'sm' || $vuetify.breakpoint.name === 'xs' ? 36 : 50" color="grey lighten-3"
@@ -28,12 +28,31 @@
         <span>DHTML</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="drawer = !drawer">
+      <v-btn v-if="drawerRight==false" icon @click.stop="drawer = !drawer">
         <v-icon class="white--text">menu</v-icon>
-        </v-btn>
+      </v-btn>
+      <v-btn v-else icon @click.stop="drawerRight = !drawerRight, drawer = false">
+        <v-icon class="white--text">create</v-icon>
+      </v-btn>
     </v-toolbar>
     <!-- End - Nav -->
-    
+
+    <!-- Navigation Right -->
+    <v-navigation-drawer
+      v-model="drawerRight"
+      stateless
+      right
+      clipped
+      hide-overlay
+      app
+    >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga voluptate, voluptas aperiam ducimus ad debitis! Animi delectus, sequi enim a fugit qui? Porro mollitia dolor omnis explicabo saepe, sapiente ipsa!
+
+      <v-btn color="success" @click="$emit('addContent')" key="btn-2" class="ma-5">Agregar</v-btn>
+
+    </v-navigation-drawer>
+    <!-- End - Navigation Right -->
+
     <!-- Content -->
     <v-content>
       <router-view/>
@@ -64,7 +83,8 @@ export default {
   },
   data () {
     return {
-      drawer: null,
+      drawer: false,
+      drawerRight: false,
     }
   }
 }
