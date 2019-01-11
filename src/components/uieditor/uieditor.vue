@@ -1,6 +1,8 @@
 <script>
 import toolbar from "../tools/toolbar.vue"
 import footer from "../tools/footer.vue"
+import * as comp from 'vuetify/lib/components'
+
 export default {
   data(){
     return {
@@ -33,27 +35,54 @@ export default {
             }
           }
         },
+        {
+          tag:comp.VBtn,
+          options:{
+            props:{
+              color:'red darken-2',
+              small:true,
+              dark:true
+            }
+          },
+          children:[
+            {
+              tag:comp.VIcon,
+              options:{
+                domProps: {
+                  innerHTML:'edit'
+                },  
+              }   
+            },
+            {
+              tag:'span',
+              options:{
+                domProps: {
+                  innerHTML:'editar'
+                },  
+              }
+            }
+          ]
+        }
       ]
     }
   },
   render(createElement){
-    return createElement('div',this.comps.map(function(val){
-      return createElement(val.tag, JSON.parse(JSON.stringify(val.options)))
+    var addchildrens = (children) => {
+      return children.map((node) => {
+        return createElement(node.tag,
+          JSON.parse(JSON.stringify(node.options)),
+          node.children != undefined ? addchildrens(node.children):''
+        )
+      })
+    }
+    return createElement('div',this.comps.map((val)=>{ 
+      return createElement(val.tag, JSON.parse(JSON.stringify(val.options)),
+        val.children != undefined ? addchildrens(val.children):''
+      )
     }))
   },
   mounted(){
-    this.$createElement('h4',"desde la instancia")
-    // console.log(this,'this',this.$vuetify,'vuetify')
-    // this.comps.push(
-    // {
-    //   tag:"h1",
-    //   options:{
-    //     class:'text-md-center',
-    //     domProps: {
-    //       innerHTML:'Que mira pajudito'
-    //     }
-    //   }
-    // })
+  
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
 <v-layout row wrap>
+  <!-- <v-toolbar fixed color="blue-grey" class="white--text"> -->
   <v-toolbar color="blue-grey" class="white--text">
     <v-btn flat icon to='/' outline color="transparent">
       <v-avatar 
