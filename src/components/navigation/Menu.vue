@@ -55,7 +55,7 @@
       </v-list-group>
     </v-list>
 
-    <v-list-tile @click.prevent="$emit('editPanel')">
+    <v-list-tile v-if="$route.name === 'create'" @click.prevent="$emit('editPanel')">
       <v-list-tile-action>
           <v-icon>fa-edit</v-icon>
       </v-list-tile-action>
