@@ -29,10 +29,10 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn v-if="drawerRight==false" icon @click.stop="drawer = !drawer">
-        <v-icon class="white--text">menu</v-icon>
+        <v-icon class="white--text">fa-bars</v-icon>
       </v-btn>
       <v-btn v-else icon @click.stop="drawerRight = !drawerRight, drawer = false">
-        <v-icon class="white--text">create</v-icon>
+        <v-icon class="white--text">fa-pencil-alt</v-icon>
       </v-btn>
     </v-toolbar>
     <!-- End - Nav -->
@@ -45,11 +45,9 @@
       clipped
       hide-overlay
       app
+      class="pa-2"
     >
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga voluptate, voluptas aperiam ducimus ad debitis! Animi delectus, sequi enim a fugit qui? Porro mollitia dolor omnis explicabo saepe, sapiente ipsa!
-
-      <v-btn color="success" @click="$emit('addContent')" key="btn-2" class="ma-5">Agregar</v-btn>
-
+      <tools_panel/>
     </v-navigation-drawer>
     <!-- End - Navigation Right -->
 
@@ -73,6 +71,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld'
 import menu from './components/navigation/Menu.vue'
+import tools_panel from './components/navigation/ToolsPanel.vue'
 
 
 export default {
@@ -80,6 +79,7 @@ export default {
   components: {
     // HelloWorld,
      menu_item:menu,
+     tools_panel
   },
   data () {
     return {
