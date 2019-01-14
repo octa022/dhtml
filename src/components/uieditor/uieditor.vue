@@ -1,6 +1,8 @@
 <script>
 import toolbar from "../tools/toolbar.vue"
+import subtoolbar from "../tools/SubToolbar.vue"
 import footer from "../tools/footer.vue"
+import layout_sec3 from "../layout/LayoutSec3.vue"
 import * as comp from 'vuetify/lib/components'
 
 export default {
@@ -28,11 +30,23 @@ export default {
           }
         },
         {
+          tag:subtoolbar,
+          options:{
+            ref:'mysubtoolbar'
+          }
+        },
+        {
           tag:"h1",
           options:{
             domProps: {
               innerHTML:'Hola SINIORES'
             }
+          }
+        },
+        {
+          tag:layout_sec3,
+          options:{
+            ref:'layout_sec3'
           }
         },
         {
