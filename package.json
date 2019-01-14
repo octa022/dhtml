@@ -10,6 +10,7 @@
   "dependencies": {
     "vue": "^2.5.21",
     "vue-drag-resize": "^1.3.2",
+    "vue-prism": "^1.0.5",
     "vue-router": "^3.0.1",
     "vue-slicksort": "^1.1.3",
     "vue-smooth-dnd": "^0.2.8",
@@ -39,7 +40,7 @@
       "eslint:recommended"
     ],
     "rules": {
-      "no-console":"off"
+      "no-console": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"
