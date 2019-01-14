@@ -4,6 +4,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueDragResize from 'vue-drag-resize'
+import VuePrism from 'vue-prism'
+
+Vue.use(VuePrism)
+  import 'prismjs/themes/prism.css'  //Carga el css generico
+  import 'prismjs/themes/prism-okaidia.css' // Carga el tema Negro
+  import 'prismjs/components/prism-bash.js' // Carga el tema para los Comandos de Consola
+  import 'prismjs/components/prism-markup.js' // Carga el css para el lenguaje de marcas 
 
 Vue.component('vue-drag-resize', VueDragResize)
 
