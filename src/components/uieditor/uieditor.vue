@@ -1,9 +1,13 @@
 <script>
 import toolbar from "../tools/Toolbar.vue"
 import footer from "../tools/Footer.vue"
-import componentsm from '../tools/ComponentSm';
-import row from "../tools/Row.vue"
-import * as comp from 'vuetify/lib/components'
+import layout_sec2 from "../layout/LayoutSec2.vue"
+import layout_sec3 from "../layout/LayoutSec3.vue"
+import layout_sec10 from '../layout/LayoutSec10.vue'
+import layout_sec13 from '../layout/LayoutSec13.vue'
+import subtoolbar from "../tools/SubToolbar.vue"
+// Asi se importan las marcas de Vuetify
+// import * as comp from 'vuetify/lib/components'
 
 export default {
   data(){
@@ -30,51 +34,62 @@ export default {
           }
         },
         {
-          tag:"h1",
+          tag:subtoolbar,
           options:{
-            domProps: {
-              innerHTML:'Hola SINIORES'
-            }
+            ref:'mysubtoolbar'
+          }
+        },
+        // Asi se crea contenido con las etiquetas de Vuetify
+        // {
+        //   tag:comp.VBtn,
+        //   options:{
+        //     props:{
+        //       color:'red darken-2',
+        //       small:true,
+        //       dark:true
+        //     }
+        //   },
+        //   children:[
+        //     {
+        //       tag:comp.VIcon,
+        //       options:{
+        //         domProps: {
+        //           innerHTML:'edit'
+        //         },  
+        //       }   
+        //     },
+        //     {
+        //       tag:'span',
+        //       options:{
+        //         domProps: {
+        //           innerHTML:'editar'
+        //         },  
+        //       }
+        //     }
+        //   ]
+        // },
+        {
+          tag:layout_sec2,
+          options:{
+            ref:'layout_sec2'
           }
         },
         {
-          tag:comp.VBtn,
+          tag:layout_sec3,
           options:{
-            props:{
-              color:'red darken-2',
-              small:true,
-              dark:true
-            }
-          },
-          children:[
-            {
-              tag:comp.VIcon,
-              options:{
-                domProps: {
-                  innerHTML:'edit'
-                },  
-              }   
-            },
-            {
-              tag:'span',
-              options:{
-                domProps: {
-                  innerHTML:'editar'
-                },  
-              }
-            }
-          ]
-        },
-        {
-          tag: componentsm,
-          options:{
-            ref:'mycomponentsm'
+            ref:'layout_sec3'
           }
         },
         {
-          tag: row,
+          tag: layout_sec10,
           options:{
-            ref:'myrow'
+            ref:'layout_sec10'
+          }
+        },
+        {
+          tag: layout_sec13,
+          options:{
+            ref:'layout_sec13'
           }
         },
       ]
