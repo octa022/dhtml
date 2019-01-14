@@ -1,6 +1,8 @@
 <script>
-import toolbar from "../tools/toolbar.vue"
-import footer from "../tools/footer.vue"
+import toolbar from "../tools/Toolbar.vue"
+import footer from "../tools/Footer.vue"
+import componentsm from '../tools/ComponentSm';
+import row from "../tools/Row.vue"
 import * as comp from 'vuetify/lib/components'
 
 export default {
@@ -62,7 +64,19 @@ export default {
               }
             }
           ]
-        }
+        },
+        {
+          tag: componentsm,
+          options:{
+            ref:'mycomponentsm'
+          }
+        },
+        {
+          tag: row,
+          options:{
+            ref:'myrow'
+          }
+        },
       ]
     }
   },
