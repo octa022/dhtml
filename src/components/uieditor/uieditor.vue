@@ -1,6 +1,7 @@
 <script>
 import toolbar from "../tools/Toolbar.vue"
 import subtoolbar from "../tools/SubToolbar.vue"
+import layout from "../layout/Layout.vue"
 import layout_sec2 from "../layout/LayoutSec2.vue"
 import layout_sec3 from "../layout/LayoutSec3.vue"
 import layout_sec10 from '../layout/LayoutSec10.vue'
@@ -68,6 +69,12 @@ export default {
         //     }
         //   ]
         // },
+        {
+          tag:layout,
+          options:{
+            ref:'layout'
+          }
+        },
         {
           tag:layout_sec2,
           options:{
