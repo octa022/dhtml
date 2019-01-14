@@ -15,7 +15,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
-        <v-icon class="white--text">menu</v-icon>
+        <v-icon class="white--text">fa-bars</v-icon>
       </v-btn>
   </v-toolbar>
     <div style="width: 100%;color:white;background-color:green">

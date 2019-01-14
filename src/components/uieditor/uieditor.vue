@@ -1,11 +1,11 @@
 <script>
 import toolbar from "../tools/Toolbar.vue"
-import footer from "../tools/Footer.vue"
+import subtoolbar from "../tools/SubToolbar.vue"
 import layout_sec2 from "../layout/LayoutSec2.vue"
 import layout_sec3 from "../layout/LayoutSec3.vue"
 import layout_sec10 from '../layout/LayoutSec10.vue'
 import layout_sec13 from '../layout/LayoutSec13.vue'
-import subtoolbar from "../tools/SubToolbar.vue"
+import footer from "../tools/Footer.vue"
 // Asi se importan las marcas de Vuetify
 // import * as comp from 'vuetify/lib/components'
 
