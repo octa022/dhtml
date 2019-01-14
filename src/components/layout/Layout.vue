@@ -61,7 +61,7 @@
 <script>
   export default {
     props:{
-      mode:String
+      mode:Number
     },
     data(){
       return{ 

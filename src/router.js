@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 import prueba from './components/prueba/prueba.vue'
 import example1 from './components/prueba/prueba.vue'
 import example2 from './components/example/ExampleTwo'
-import ui from './components/uieditor/uieditor.vue'
+import ui from './components/uieditor/container.vue'
 
 Vue.use(Router)
 

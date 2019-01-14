@@ -1,12 +1,13 @@
 <script>
-import toolbar from "../tools/Toolbar.vue"
-import subtoolbar from "../tools/SubToolbar.vue"
+/* eslint-disable */
+// import toolbar from "../tools/Toolbar.vue"
+// import subtoolbar from "../tools/SubToolbar.vue"
 import layout from "../layout/Layout.vue"
-import layout_sec2 from "../layout/LayoutSec2.vue"
-import layout_sec3 from "../layout/LayoutSec3.vue"
-import layout_sec10 from '../layout/LayoutSec10.vue'
-import layout_sec13 from '../layout/LayoutSec13.vue'
-import footer from "../tools/Footer.vue"
+// import layout_sec2 from "../layout/LayoutSec2.vue"
+// import layout_sec3 from "../layout/LayoutSec3.vue"
+// import layout_sec10 from '../layout/LayoutSec10.vue'
+// import layout_sec13 from '../layout/LayoutSec13.vue'
+//import footer from "../tools/Footer.vue"
 // Asi se importan las marcas de Vuetify
 // import * as comp from 'vuetify/lib/components'
 
@@ -14,91 +15,91 @@ export default {
   data(){
     return {
       comps:[
+        // // {
+        // //   tag:"h1",
+        // //   options:{
+        // //     domProps: {
+        // //       innerHTML:'Hola pajudito'
+        // //     }
+        // //   }
+        // // },
         // {
-        //   tag:"h1",
+        //   tag:footer,
         //   options:{
-        //     domProps: {
-        //       innerHTML:'Hola pajudito'
-        //     }
+        //     ref:'myfooter'
         //   }
         // },
-        {
-          tag:footer,
-          options:{
-            ref:'myfooter'
-          }
-        },
-        {
-          tag:toolbar,
-          options:{
-            ref:'mytoolbar'
-          }
-        },
-        {
-          tag:subtoolbar,
-          options:{
-            ref:'mysubtoolbar'
-          }
-        },
-        // Asi se crea contenido con las etiquetas de Vuetify
         // {
-        //   tag:comp.VBtn,
+        //   tag:toolbar,
         //   options:{
-        //     props:{
-        //       color:'red darken-2',
-        //       small:true,
-        //       dark:true
-        //     }
-        //   },
-        //   children:[
-        //     {
-        //       tag:comp.VIcon,
-        //       options:{
-        //         domProps: {
-        //           innerHTML:'edit'
-        //         },  
-        //       }   
-        //     },
-        //     {
-        //       tag:'span',
-        //       options:{
-        //         domProps: {
-        //           innerHTML:'editar'
-        //         },  
-        //       }
-        //     }
-        //   ]
+        //     ref:'mytoolbar'
+        //   }
         // },
-        {
-          tag:layout,
-          options:{
-            ref:'layout'
-          }
-        },
-        {
-          tag:layout_sec2,
-          options:{
-            ref:'layout_sec2'
-          }
-        },
-        {
-          tag:layout_sec3,
-          options:{
-            ref:'layout_sec3'
-          }
-        },
-        {
-          tag: layout_sec10,
-          options:{
-            ref:'layout_sec10'
-          }
-        },
-        {
-          tag: layout_sec13,
-          options:{
-            ref:'layout_sec13'
-          }
-        },
+        // {
+        //   tag:subtoolbar,
+        //   options:{
+        //     ref:'mysubtoolbar'
+        //   }
+        // },
+        // // Asi se crea contenido con las etiquetas de Vuetify
+        // // {
+        // //   tag:comp.VBtn,
+        // //   options:{
+        // //     props:{
+        // //       color:'red darken-2',
+        // //       small:true,
+        // //       dark:true
+        // //     }
+        // //   },
+        // //   children:[
+        // //     {
+        // //       tag:comp.VIcon,
+        // //       options:{
+        // //         domProps: {
+        // //           innerHTML:'edit'
+        // //         },  
+        // //       }   
+        // //     },
+        // //     {
+        // //       tag:'span',
+        // //       options:{
+        // //         domProps: {
+        // //           innerHTML:'editar'
+        // //         },  
+        // //       }
+        // //     }
+        // //   ]
+        // // },
+        // {
+        //   tag:layout,
+        //   options:{
+        //     ref:'layout'
+        //   }
+        // },
+        // {
+        //   tag:layout_sec2,
+        //   options:{
+        //     ref:'layout_sec2'
+        //   }
+        // },
+        // {
+        //   tag:layout_sec3,
+        //   options:{
+        //     ref:'layout_sec3'
+        //   }
+        // },
+        // {
+        //   tag: layout_sec10,
+        //   options:{
+        //     ref:'layout_sec10'
+        //   }
+        // },
+        // {
+        //   tag: layout_sec13,
+        //   options:{
+        //     ref:'layout_sec13'
+        //   }
+        // },
       ]
     }
   },
@@ -116,6 +117,18 @@ export default {
         val.children != undefined ? addchildrens(val.children):''
       )
     }))
+  },
+  methods:{
+    addElement(evt){
+      this.comps.push({
+        tag:layout,
+        options:{
+          props:{
+            mode: evt.number
+          }
+        },
+      })
+    }
   },
   mounted(){
   
