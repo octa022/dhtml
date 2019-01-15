@@ -6,11 +6,12 @@
       clipped
       stateless
       hide-overlay
+      permanent
+      v-if="$store.getters.getDrawer"
       :mini-variant="$vuetify.breakpoint.name === 'sm' || 
       $vuetify.breakpoint.name === 'xs' ? true : false"
-      v-model="drawer"
       width='220'>
-      <menu_item @editPanel="drawerRight = !drawerRight, drawer = false"/>
+      <menu_item/>
     </v-navigation-drawer>
     <!-- End - Navigation Control -->
     
@@ -28,28 +29,15 @@
         <span>DHTML</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn v-if="drawerRight==false" icon @click.stop="drawer = !drawer">
+      <v-btn v-if="!$store.getters.getDrawerRight" icon 
+        @click="showdraw()">
         <v-icon class="white--text">fa-bars</v-icon>
       </v-btn>
-      <v-btn v-else icon @click.stop="drawerRight = !drawerRight, drawer = false">
+      <v-btn v-else icon @click="$store.dispatch('setDrawerRight')">
         <v-icon class="white--text">fa-pencil-alt</v-icon>
       </v-btn>
     </v-toolbar>
     <!-- End - Nav -->
-
-    <!-- Navigation Right -->
-    <v-navigation-drawer
-      v-model="drawerRight"
-      stateless
-      right
-      clipped
-      hide-overlay
-      app
-      class="pa-2"
-    >
-      <tools_panel/>
-    </v-navigation-drawer>
-    <!-- End - Navigation Right -->
 
     <!-- Content -->
     <v-content>
@@ -69,22 +57,21 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld'
 import menu from './components/navigation/Menu.vue'
-import tools_panel from './components/navigation/ToolsPanel.vue'
-
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
-     menu_item:menu,
-     tools_panel
+     menu_item:menu
   },
-  data () {
+  methods:{
+    showdraw(){
+      this.$store.dispatch('setDrawer')
+    }
+  },
+  data(){
     return {
-      drawer: false,
-      drawerRight: false,
+      drawer: this.$store.getters.getDrawer
     }
   }
 }

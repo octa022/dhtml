@@ -1,7 +1,10 @@
 <template>
 <v-layout row wrap class="text-xs-center">
   <v-flex xs12>
-    <h3 class="text-sm-center">Panel de Herramientas</h3>
+    <h3 class="text-sm-center text-uppercase">Panel de Herramientas</h3>
+  </v-flex>
+  <v-flex xs12>
+    <h4 class="text-sm-center"><u>Layout</u></h4>
   </v-flex>
   <v-flex xs12 sm6>
     <v-btn class="sec2">
@@ -24,6 +27,9 @@
   </v-flex>
    <v-flex xs12 sm6 @click="createRow(1)">
     <v-btn class="sec13"></v-btn>
+  </v-flex>
+  <v-flex xs12>
+    <h4 class="text-sm-center"><u>Toolbars</u></h4>
   </v-flex>
 </v-layout>
 </template>
