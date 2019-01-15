@@ -10,6 +10,7 @@
       hide-overlay
       app
       class="pa-2"
+      width='220'
     >
       <toolspanel @createElement="addElement($event)"></toolspanel>
     </v-navigation-drawer>
