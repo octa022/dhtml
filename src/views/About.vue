@@ -32,24 +32,16 @@
       en el mismo entorno. En DHTML hiciste todo con JavaScript, porque podías, hoy está hecho porque tiene sentido.
     </p>
     <p>
-      Las tendencias indican la fusion de todo, crear código que se asemeja al código DHTML de 1999 
-      más que el código basado en jQuery de 2009.
+      Este término inicio a fines de los años 90 y principios de los 2000 para describir cualquier tipo de funcionalidad que de alguna manera fuera ámbito de la navegación regular de sitios web. La definición de DHTML (HTML Dinámico), podría ser que es “HTML que puede cambiar incluso des pues de que una página se haya cargado en un navegador”. En su momento esto era una palabra de moda difícil de definir.
     </p>
     <p>
-      También hay una tendencia a desalentar el uso de CSS en los componentes React. Esto no significa que se 
-      eliminaría el estilo, sino que se eliminaría el uso de hojas de estilo en cascada con clases e identificadores. 
-      Esto suena como una desviación bastante brusca de las prácticas anti-en línea de facto que hemos tenido desde la 
-      popularización de CSS.
+      Las últimas tendencias en desarrollo de aplicaciones web están relacionadas con DHTML. En la antigüedad este concepto era muy complejo ya que se buscaba que el sitio siguiera siendo funcional sin JavaScript. En la actualidad se han producido múltiples avances en las tecnologías front-end, como CSS3, HTML5, JQuery, etc.., el primer innovador no esta herramienta fue Google con Gmail..
     </p>
     <p>
-      En lugar de alternar la vista de sus componentes con clases (definidas en un CSS creado con SASS / LESS), 
-      modificará los estilos de los elementos directamente. Las clases de hover y otros efectos similares se realizarán a 
-      través de eventos de JavaScript, no pseudo selectores como: hover.
+      Se está busca la fusión de todos los elementos de frontend, los desarrollos actuales con React y Vue se asemejan al Código DHTML de 1999, antes hacías todo con JavaScript porque se podía, pero ahora se hace porque tiene sentido.  
     </p>
     <p>
-      Las hojas de estilo en cascada obviamente tienen sus usos en la construcción de sitios, pero para los 
-      componentes individuales. Incluso si acostumbrarse a la idea lleva un tiempo, computar los estilos de elementos en 
-      el navegador es tan poderoso como siempre lo ha sido.
+      Se está perdiendo un poco la estructura de hojas de estilo en cascada que definan todos los aspectos de nuestra aplicación, ahora solo definen el cuerpo de nuestro sitio y los estilos de los componentes se realizan en línea, a su vez se está perdiendo el uso de pseudo selectores como hover y estos efectos se están realizando por JavaScript.
     </p>
     <h1>Regreso al futuro: un desplazador DHTML desde 2001</h1>
   </div>
