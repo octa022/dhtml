@@ -1,3 +1,4 @@
+/*Tools Panel*/
 button.[class*="sec"] {
   /*border: 1px dashed red;*/
   height: 4rem
@@ -31,6 +32,21 @@ button.sec13 > div {
   height: 1rem;
 }
 
+/*Delete Block*/
+.block {
+  position: relative
+}
+.block .trash {
+  visibility: hidden;
+  /*border:1px solid red;*/
+  color: #5F4747 !important;
+  position: absolute !important;
+  top:0;
+  right: 0;
+}
+.block:hover .trash {
+  visibility: visible;
+}
 
 
 .menu-list a {

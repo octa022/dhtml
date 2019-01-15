@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-xs>
-    <v-layout row wrap v-if="mode == 1">
+    <v-layout row wrap block v-if="mode == 1">
       <v-layout row wrap>
         <v-flex xs12 style="border: 1px solid black" pa-4>
           <v-flex xs12 style="border: 1px blue solid; background-color: red;">
@@ -8,9 +8,10 @@
           </v-flex>
         </v-flex>
       </v-layout>
+      <v-btn icon class="trash"><v-icon >fa-trash-alt</v-icon></v-btn>
     </v-layout>
-    <v-layout row wrap v-if="mode == 2">
-      <v-layout row wrap>
+    <v-layout row block wrap v-if="mode == 2">
+      <!-- <v-layout row wrap> -->
         <v-flex xs6 pa-1 style="border: 1px solid gray">
         <!-- <v-layout row wrap> -->
           <v-flex xs12 pa-1 style="border: 1px dashed gray">
@@ -31,10 +32,11 @@
             </v-flex>
           <!-- /v-layout -->
         </v-flex>
-      </v-layout>
+        <v-btn icon class="trash"><v-icon >fa-trash-alt</v-icon></v-btn>
+      <!-- </v-layout> -->
     </v-layout>
-    <v-layout row wrap v-if="mode == 3">
-      <v-layout row wrap>
+    <v-layout row wrap block v-if="mode == 3">
+      <!-- <v-layout row wrap> -->
         <v-flex xs4 style="border: 1px solid black" pa-4>
           <v-flex xs12 style="border: 1px blue solid; background-color: red;" pa-4>
             secuencia 11 
@@ -45,15 +47,16 @@
             secuencia 12 
           </v-flex>
         </v-flex>
-      </v-layout>
+      <!-- </v-layout> -->
+      <v-btn icon class="trash"><v-icon >fa-trash-alt</v-icon></v-btn>
     </v-layout>
     <v-layout row wrap v-if="mode == 4">
       <v-layout row wrap>
         <v-flex xs12 style="border: 1px solid black" pa-4>
-				<v-flex xs12 style="border: 1px blue solid; background-color: red;">
-					secuencia 13 
-				</v-flex>
-			</v-flex>
+        <v-flex xs12 style="border: 1px blue solid; background-color: red;">
+          secuencia 13 
+        </v-flex>
+      </v-flex>
       </v-layout>
     </v-layout>
   </v-container>
