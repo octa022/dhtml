@@ -8,7 +8,7 @@
           </v-flex>
         </v-flex>
       </v-layout>
-      <v-btn icon class="trash"><v-icon >fa-trash-alt</v-icon></v-btn>
+      <v-btn icon class="trash" @click="deleteElement()"><v-icon>fa-trash-alt</v-icon></v-btn>
     </v-layout>
     <v-layout row block wrap v-if="mode == 2">
       <!-- <v-layout row wrap> -->
@@ -32,7 +32,7 @@
             </v-flex>
           <!-- /v-layout -->
         </v-flex>
-        <v-btn icon class="trash"><v-icon >fa-trash-alt</v-icon></v-btn>
+        <v-btn icon class="trash" @click="deleteElement()"><v-icon >fa-trash-alt</v-icon></v-btn>
       <!-- </v-layout> -->
     </v-layout>
     <v-layout row wrap block v-if="mode == 3">
@@ -48,7 +48,7 @@
           </v-flex>
         </v-flex>
       <!-- </v-layout> -->
-      <v-btn icon class="trash"><v-icon >fa-trash-alt</v-icon></v-btn>
+      <v-btn icon class="trash" @click="deleteElement()"><v-icon >fa-trash-alt</v-icon></v-btn>
     </v-layout>
     <v-layout row wrap v-if="mode == 4">
       <v-layout row wrap>
@@ -64,11 +64,15 @@
 <script>
   export default {
     props:{
+      idname:String,
+      parent:String,
       mode:Number
     },
-    data(){
-      return{ 
-        
+    methods:{
+      deleteElement(){
+        this.$parent.removeElement({
+          keyname:this.idname
+        })
       }
     }
   }

@@ -16,4 +16,7 @@ export default {
       this.$refs.ui.addElement(evt)
     }
   },
+  mounted(){
+    console.log(this,"this")
+  }
 }

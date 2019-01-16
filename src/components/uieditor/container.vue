@@ -2,7 +2,6 @@
 <v-container fluid>
   <uieditor ref="ui"></uieditor>
   <v-navigation-drawer
-      v-if="$store.getters.getDrawerRight"
       stateless
       right
       clipped
@@ -12,6 +11,7 @@
       class="pa-2"
       width='220'
     >
+      <!-- v-if="$store.getters.getDrawerRight" -->
       <toolspanel @createElement="addElement($event)"></toolspanel>
     </v-navigation-drawer>
    <v-btn
