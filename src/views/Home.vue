@@ -27,6 +27,7 @@
 </template>
 
 <script>
+//Importamos la el componente   
   import draggable from 'vuedraggable'
 
   export default {
