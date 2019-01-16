@@ -1,8 +1,8 @@
 <template>
-  <v-container grid-list-xs>
+  <v-container grid-list-xs style="border: 1px solid red">
     <v-layout row wrap>
-      <v-flex xs12>
-        <h1>Arrastra y Suelta los elementos de abajo</h1> <br><br>
+      <v-flex xs4>
+        <h2 class="text-sm-center pb-2">Arrastra y Suelta los elementos de abajo</h2>
           <draggable :list="list.upvotes">
             <transition-group>
               <div v-for="element in list" :key="element">
@@ -10,7 +10,24 @@
               </div>
             </transition-group>
         </draggable>
-      </v-flex> 
+      </v-flex>
+      <v-flex xs8 style="border: 1px solid red">
+        <h2>Draggable</h2>
+        <pre class="language-html">
+          <code style="box-shadow: none;">
+          &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"&gt;&lt;/script&gt;
+          </code>
+        </pre>
+
+        <pre class="language-html">
+          <code style="box-shadow: none;">
+            &lt;h1&gt;Contenido aqui&lt;/h1&gt;
+          </code>
+          <code style="box-shadow: none;">
+            &lt;h1>Contenido 2&lt;/h1>
+          </code>
+        </pre>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
