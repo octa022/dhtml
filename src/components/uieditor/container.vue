@@ -9,6 +9,7 @@
       hide-overlay
       app
       class="pa-2"
+      width='220'
     >
       <!-- v-if="$store.getters.getDrawerRight" -->
       <toolspanel @createElement="addElement($event)"></toolspanel>

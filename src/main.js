@@ -5,6 +5,9 @@ import router from './router'
 import store from './store'
 import VueDragResize from 'vue-drag-resize'
 import VuePrism from 'vue-prism'
+import draggable from 'vuedraggable'
+
+Vue.use(draggable)
 
 Vue.use(VuePrism)
   import 'prismjs/themes/prism.css'  //Carga el css generico
