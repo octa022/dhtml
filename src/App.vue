@@ -6,11 +6,12 @@
       clipped
       stateless
       hide-overlay
+      permanent
+      v-if="$store.getters.getDrawer"
       :mini-variant="$vuetify.breakpoint.name === 'sm' || 
       $vuetify.breakpoint.name === 'xs' ? true : false"
-      v-model="drawer"
       width='220'>
-      <menu_item @editPanel="drawerRight = !drawerRight, drawer = false"/>
+      <menu_item/>
     </v-navigation-drawer>
     <!-- End - Navigation Control -->
     
@@ -28,30 +29,15 @@
         <span>DHTML</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn v-if="drawerRight==false" icon @click.stop="drawer = !drawer">
-        <v-icon class="white--text">menu</v-icon>
+      <v-btn v-if="!$store.getters.getDrawerRight" icon 
+        @click="showdraw()">
+        <v-icon class="white--text">fa-bars</v-icon>
       </v-btn>
-      <v-btn v-else icon @click.stop="drawerRight = !drawerRight, drawer = false">
-        <v-icon class="white--text">create</v-icon>
+      <v-btn v-else icon @click="$store.dispatch('setDrawerRight')">
+        <v-icon class="white--text">fa-pencil-alt</v-icon>
       </v-btn>
     </v-toolbar>
     <!-- End - Nav -->
-
-    <!-- Navigation Right -->
-    <v-navigation-drawer
-      v-model="drawerRight"
-      stateless
-      right
-      clipped
-      hide-overlay
-      app
-    >
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga voluptate, voluptas aperiam ducimus ad debitis! Animi delectus, sequi enim a fugit qui? Porro mollitia dolor omnis explicabo saepe, sapiente ipsa!
-
-      <v-btn color="success" @click="$emit('addContent')" key="btn-2" class="ma-5">Agregar</v-btn>
-
-    </v-navigation-drawer>
-    <!-- End - Navigation Right -->
 
     <!-- Content -->
     <v-content>
@@ -71,20 +57,21 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld'
 import menu from './components/navigation/Menu.vue'
-
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
-     menu_item:menu,
+     menu_item:menu
   },
-  data () {
+  methods:{
+    showdraw(){
+      this.$store.dispatch('setDrawer')
+    }
+  },
+  data(){
     return {
-      drawer: false,
-      drawerRight: false,
+      drawer: this.$store.getters.getDrawer
     }
   }
 }

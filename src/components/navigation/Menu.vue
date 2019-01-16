@@ -3,7 +3,7 @@
     <v-list-tile to="/">
       <v-list-tile-action>
         <!-- <router-link to="/"> -->
-          <v-icon>home</v-icon>
+          <v-icon>fa-home</v-icon>
         <!-- </router-link> -->
       </v-list-tile-action>
       <v-list-tile-content>
@@ -19,7 +19,7 @@
     <v-list-tile to="/create">
       <v-list-tile-action>
         <!-- <router-link to="/"> -->
-          <v-icon>add</v-icon>
+          <v-icon>fa-plus</v-icon>
         <!-- </router-link> -->
       </v-list-tile-action>
       <v-list-tile-content>
@@ -34,7 +34,7 @@
     </v-list-tile>
     <v-list>
       <v-list-group
-        prepend-icon="home"
+        prepend-icon="fa-people-carry"
         no-action
       >
         <v-list-tile slot="activator">
@@ -45,27 +45,24 @@
 
         <v-list-tile to="/example1">
           <v-list-tile-content>
-            <v-list-tile-title>1</v-list-tile-title>
+            <v-list-tile-title>Insertar</v-list-tile-title>
           </v-list-tile-content>
 
           <v-list-tile-action>
-            <v-icon>home</v-icon>
+            <v-icon>fa-plus-square</v-icon>
+          </v-list-tile-action>
+        </v-list-tile>
+
+        <v-list-tile to="/example3">
+          <v-list-tile-content>
+            <v-list-tile-title>D&D</v-list-tile-title>
+          </v-list-tile-content>
+
+          <v-list-tile-action>
+            <v-icon>fa-allergies</v-icon>
           </v-list-tile-action>
         </v-list-tile>
       </v-list-group>
     </v-list>
-
-    <v-list-tile @click.prevent="$emit('editPanel')">
-      <v-list-tile-action>
-          <v-icon>create</v-icon>
-      </v-list-tile-action>
-      <v-list-tile-content>
-        <v-list-tile-title>
-            <v-list-tile-title>
-              Editar
-            </v-list-tile-title>
-        </v-list-tile-title>
-      </v-list-tile-content>
-    </v-list-tile>
   </div>
 </template>
