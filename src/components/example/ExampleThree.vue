@@ -3,9 +3,9 @@
     <v-layout row wrap>
       <v-flex xs4>
         <h2 class="text-sm-center pb-2">Arrastra y Suelta los elementos de abajo</h2>
-          <draggable :list="list.upvotes">
+          <draggable class="drag1" :list="list.upvotes">
             <transition-group>
-              <div v-for="element in list" :key="element">
+              <div class="elementList" v-for="element in list" :key="element">
                       <h2>{{element}}</h2>
               </div>
             </transition-group>
@@ -49,3 +49,16 @@ export default {
   }
 }
 </script>
+<style>
+.drag1{
+  background-color: grey;
+  
+}
+.elementList{
+  padding: 4px;
+  margin-top: 4px;
+  border: solid 1px;
+  transition: all 0,5s;
+  background-color: white;
+}
+</style>
