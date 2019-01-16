@@ -32,7 +32,7 @@ export default{
   methods:{
     createRow(number){
       this.$emit("createElement",{
-        "name": "layout",
+        "tag": "layout",
         "number": number
       })
     }
