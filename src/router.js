@@ -5,6 +5,7 @@ import prueba from './components/prueba/prueba.vue'
 import example1 from './components/prueba/prueba.vue'
 import example2 from './components/example/ExampleTwo'
 import example3 from './components/example/ExampleThree'
+import example4 from './components/example/ExampleFour'
 import ui from './components/uieditor/container.vue'
 
 Vue.use(Router)
@@ -49,6 +50,11 @@ export default new Router({
       path: '/example3',
       name: 'example3',
       component: example3
+    },
+    {
+      path: '/example4',
+      name: 'example4',
+      component: example4
     }
   ]
 })
