@@ -31,7 +31,80 @@ export default {
         //       }
         //     }
         //   }
-        // }
+        // },
+        // // {
+        // //   tag:"h1",
+        // //   options:{
+        // //     domProps: {
+        // //       innerHTML:'Hola pajudito'
+        // //     }
+        // //   }
+        // // },
+        // {
+        //   tag:footer,
+        //   options:{
+        //     ref:'myfooter'
+        //   }
+        // },
+        // {
+        //   tag:toolbar,
+        //   options:{
+        //     ref:'mytoolbar'
+        //   }
+        // },
+        // {
+        //   tag:subtoolbar,
+        //   options:{
+        //     ref:'mysubtoolbar'
+        //   }
+        // },
+        // // Asi se crea contenido con las etiquetas de Vuetify
+        // // {
+        // //   tag:comp.VBtn,
+        // //   options:{
+        // //     props:{
+        // //       color:'red darken-2',
+        // //       small:true,
+        // //       dark:true
+        // //     }
+        // //   },
+        // //   children:[
+        // //     {
+        // //       tag:comp.VIcon,
+        // //       options:{
+        // //         domProps: {
+        // //           innerHTML:'edit'
+        // //         },  
+        // //       }   
+        // //     },
+        // //     {
+        // //       tag:'span',
+        // //       options:{
+        // //         domProps: {
+        // //           innerHTML:'editar'
+        // //         },  
+        // //       }
+        // //     }
+        // //   ]
+        // // },
+        // {
+        //   tag:layout,
+        //   options:{
+        //     ref:'layout'
+        //   }
+        // },
+        // {
+        //   tag:layout_sec2,
+        //   options:{
+        //     ref:'layout_sec2'
+        //   }
+        // },
+        // {
+        //   tag:layout_sec3,
+        //   options:{
+        //     ref:'layout_sec3'
+        //   }
+        // },
       ],
       mapComps:{}
     }
