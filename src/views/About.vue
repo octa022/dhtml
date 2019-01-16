@@ -111,7 +111,7 @@
       StarWars: function(){
         let http_request = new XMLHttpRequest();
         http_request.overrideMimeType('text/xml');
-        http_request.open('GET', 'http://www.example.org/algun.archivo', true);
+        http_request.open('GET', 'https://swapi.co/api/people/1/', true);
         http_request.send();
         console.log(http_request)
         alert('hey')
