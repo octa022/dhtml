@@ -1,5 +1,5 @@
 <template>
-  <v-container grid-list-xs style="border: 1px solid red">
+  <v-container grid-list-xs>
     <v-layout row wrap>
       <v-flex xs4>
         <h2 class="text-sm-center pb-2">Arrastra y Suelta los elementos de abajo</h2>
@@ -11,22 +11,40 @@
             </transition-group>
         </draggable>
       </v-flex>
-      <v-flex xs8 style="border: 1px solid red">
-        <h2>Draggable</h2>
+      <v-flex xs8 pl-4>
+
+        <h2 class="display-2 pb-2 text-xs-center">Vue.Draggable</h2>
+
+        <p class="headline text-xs-justify">
+          Es un Componente de Vue o directiva que permite arrastrar y soltar en sincronización con el view-model. Esta basada en la librería de JavaScript <kbd><a href="http://sortablejs.github.io/Sortable/" target="_blank" style="text-decoration: none; color: white">Sortable</a></kbd>, la cual permite reordenar listas arrastrando y soltando cada elemento en navegadores como en dispositivos táctiles.
+        </p>
+
+        <h3 class="display-1 pb-2">Instalación</h3>
+
+        <p class="headline">Para realizar la instalación copiamos en la terminal el siguiente comando:</p>
+        <pre class="language-bash">
+    <code>
+    $ npm i vuedraggable
+    </code>
+        </pre>
+        <p class="headline">También se puede usar mediante su cdn::</p>
         <pre class="language-html">
-          <code style="box-shadow: none;">
-          &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"&gt;&lt;/script&gt;
-          </code>
+    <code>
+    &lt;!-- CDNJS :: Sortable (https://cdnjs.com/) -->
+    &lt;script src="//cdn.jsdelivr.net/npm/sortablejs@1.7.0/Sortable.min.js">&lt;/script>
+    &lt;!-- CDNJS :: Vue.Draggable (https://cdnjs.com/) -->
+    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.15.0/vuedraggable.min.js">&lt;/script>
+    </code>
         </pre>
 
-        <pre class="language-html">
-          <code style="box-shadow: none;">
-            &lt;h1&gt;Contenido aqui&lt;/h1&gt;
+        <p class="headline">Uso típico del del Componente:</p>
+
+        <!-- Ejemplo de Cajas de Codigo -->
+        <!-- <pre class="language-html">
+          <code>
+            &lt;h1&gt;HOLA&lt;/h1&gt;
           </code>
-          <code style="box-shadow: none;">
-            &lt;h1>Contenido 2&lt;/h1>
-          </code>
-        </pre>
+        </pre> -->
       </v-flex>
     </v-layout>
   </v-container>
