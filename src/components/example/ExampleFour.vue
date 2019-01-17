@@ -63,8 +63,10 @@
       </v-flex>
         <p class="headline text-xs-justify"> Ejemplo: </p>
       <v-flex>
-        <h1 id="titulo">Este es un título dinámico</h1> 
-        <input id="btnExample" type="button" value="Cambiar Color" @click="cambiarColor()">
+        <h1 id="titulo">Este es un título dinámico</h1>
+        <div class="text-xs-center py-5">
+          <input id="btnExample" type="button" value="Cambiar Color" class="input-button grey darken-1 white--text" @click="cambiarColor()">
+        </div>
       </v-flex>
       <v-flex>
         <h2 class="display-1 text-sm-justify py-3">childNodes</h2>
@@ -92,11 +94,11 @@
         var lista=document.getElementById('bloque');
         alert('La cantidad de hijos del nodo div es:'+lista.childNodes.length);  
         var cadena="";
-        for(var x=0;x<lista.childNodes.length;x++){
-          if (lista.childNodes[x].nodeType==Node.TEXT_NODE)
-            cadena=cadena+"Nodo tipo Texto\n";
-          if (lista.childNodes[x].nodeType==Node.ELEMENT_NODE)
-            cadena=cadena+"Nodo tipo Elemento\n";
+        for(var x=0;x&lt;lista.childNodes.length;x++){
+          if (lista.childNodes[x].nodeType &#61;= Node.TEXT_NODE){
+            cadena = cadena+&#8220;Nodo tipo Texto \n&#8221;;}
+          if (lista.childNodes[x].nodeType == Node.ELEMENT_NODE)
+            cadena=cadena+&#8220;Nodo tipo Elemento\n&#8221;;
         }
         alert(cadena);
       }
@@ -109,7 +111,9 @@
             <p>Este es el segundo párrafo</p>
             <p>Este es el tercer párrafo</p>
           </div>
-          <input type="button" class="boton1" value="Contar los hijos del nodo DIV" @click="cantidadHijos()">
+          <div class="text-xs-center py-3">
+            <input type="button" class="boton1 input-button grey darken-1 white--text" value="Contar los hijos del nodo DIV" @click="cantidadHijos()">
+          </div>
         </v-flex>
       </v-flex>
       <v-flex>
@@ -149,7 +153,9 @@
             <p>Este es el segundo párrafo</p>
             <p>Este es el tercer párrafo</p>
           </div>
-          <input type="button" value="Cambiar color de fondo del div" @click="cambiarColorFondo()">
+          <div class="text-xs-center py-3">
+            <input type="button" class="input-button grey darken-1 white--text" value="Cambiar color de fondo del div" @click="cambiarColorFondo()">
+          </div>
         </v-flex>
       </v-flex>
       <v-flex>
@@ -187,7 +193,9 @@
         <p class="headline text-xs-justify"> Ejemplo: </p>
         <v-flex>
           <p id="parrafo">Texto inicial:</p>
-          <input type="button" value="Agregar nodo de texto" @click="agregar()">
+          <div class="text-xs-center py-3">
+            <input type="button" class="input-button grey darken-1 white--text" value="Agregar nodo de texto" @click="agregar()">
+          </div>
         </v-flex>
       </v-flex>
       <v-flex>
@@ -236,9 +244,15 @@
         <p class="headline text-xs-justify"> Ejemplo: </p>
         <v-flex>
           <div id="parrafos"></div>
-          <input type="button" value="Agregar nodo tipo elemento" @click="agregarTwo()">
-          <input type="button" value="Eliminar primer nodo tipo elemento" @click="eliminarPrimero()">
-          <input type="button" value="Eliminar último nodo tipo elemento" @click="eliminarUltimo()">
+          <div class="text-xs-center pt-3">
+            <input type="button" class="input-button grey darken-1 white--text" value="Agregar nodo" @click="agregarTwo()">
+          </div>
+          <div class="text-xs-center">
+            <input type="button" class="input-button grey darken-1 white--text" value="Eliminar primer nodo" @click="eliminarPrimero()">
+          </div>
+          <div class="text-xs-center pb-3">
+            <input type="button" class="input-button grey darken-1 white--text" value="Eliminar último nodo" @click="eliminarUltimo()">
+          </div>
         </v-flex>
         <p class="headline text-xs-justify pt-4"> Existen diversas propiedades que podemos utilizar para modifiar el DOM, 
           el limite siempre sera nuestra imaginación...
@@ -252,8 +266,9 @@
 export default {
   data() {
     return {
-      
-      }
+      contador : 1, //Verificar por que esta variable no puede estar afuera...
+      contadort : 1
+    }
   },
   methods: {
     cambiarColor(){
@@ -280,17 +295,15 @@ export default {
     },
     agregar()
     {
-      var contador=1; //Verificar por que esta variable no puede estar afuera...
-      var nt=document.createTextNode(' Nuevo texto '+contador+' - ');
+      var nt=document.createTextNode(' Nuevo texto '+this.contador+' - ');
       var nparrafo=document.getElementById('parrafo');
       nparrafo.appendChild(nt);
-      contador++;
+      this.contador++;
     },
     agregarTwo(){
-      var contadort=1;
       var nuevoelemento=document.createElement("p"); 
-      var nuevotexto=document.createTextNode("Hola Mundo " + contadort + " - ");
-      contadort++;
+      var nuevotexto=document.createTextNode("Hola Mundo " + this.contadort + " - ");
+      this.contadort++;
       nuevoelemento.appendChild(nuevotexto);
       var puntero=document.getElementById("parrafos");
       puntero.appendChild(nuevoelemento);
