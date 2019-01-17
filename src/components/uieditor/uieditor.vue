@@ -32,8 +32,7 @@ export default {
         //     }
         //   }
         // }
-      ],
-      mapComps:{}
+      ]
     }
   },
   render(createElement){
@@ -65,13 +64,11 @@ export default {
           },
           key: elementkey
         },
-      }),
-      this.mapComps[elementkey] = this.comps.length - 1
+      })
     },
     removeElement(evt){
-      console.log(evt,"delete",this.mapComps)
-      this.comps.splice(this.mapComps[evt.idname],1)
-      delete this.mapComps[evt.idname]
+      let i = this.comps.findIndex(j => j.options.key == evt.idname)
+      this.comps.splice(i,1)
     }
   }
 }
