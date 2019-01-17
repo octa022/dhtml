@@ -4,7 +4,7 @@ import toolspanel from "../navigation/ToolsPanel.vue"
 export default {
   components:{
     'uieditor' : uieditor,
-    "toolspanel" : toolspanel
+    "toolspanel" : toolspanel,
   },
   data(){
     return{
@@ -15,8 +15,5 @@ export default {
     addElement(evt){
       this.$refs.ui.addElement(evt)
     }
-  },
-  mounted(){
-    console.log(this,"this")
   }
 }

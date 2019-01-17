@@ -70,7 +70,7 @@
     },
     methods:{
       deleteElement(){
-        this.$parent.removeElement({
+        this.$parent.$parent.removeElement({
           keyname:this.idname
         })
       }

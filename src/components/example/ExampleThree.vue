@@ -89,7 +89,7 @@
      &lt;draggable class="drag1" :list="list">
        &lt;transition-group>
          &lt;div class="elementList" v-for="element in list" :key="element">
-           &lt;h2>{{element}} &lt;/h2>
+           &lt;h2>{ { element } } &lt;/h2>
          &lt;/div>
        &lt;/transition-group>
      &lt;/draggable>

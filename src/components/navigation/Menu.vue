@@ -16,6 +16,22 @@
         </v-list-tile-title>
       </v-list-tile-content>
     </v-list-tile>
+    <v-list-tile to="/about">
+      <v-list-tile-action>
+        <!-- <router-link to="/"> -->
+          <v-icon>fa-door-open</v-icon>
+        <!-- </router-link> -->
+      </v-list-tile-action>
+      <v-list-tile-content>
+        <v-list-tile-title>
+          <!-- <router-link to="/"> -->
+            <v-list-tile-title>
+              Introducción
+            </v-list-tile-title>
+          <!-- </router-link>   -->
+        </v-list-tile-title>
+      </v-list-tile-content>
+    </v-list-tile>
     <v-list-tile to="/create">
       <v-list-tile-action>
         <!-- <router-link to="/"> -->

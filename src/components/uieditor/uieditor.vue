@@ -6,6 +6,7 @@ import layout from "../layout/Layout.vue"
 import footer from "../tools/Footer.vue"
 // Asi se importan las marcas de Vuetify
 import * as comp from 'vuetify/lib/components'
+import draggable from 'vuedraggable'
 
 let listComponents = {
   "layout":[layout,0],
@@ -16,7 +17,6 @@ let listComponents = {
 
 export default {
   data(){
-    this.$listenners
     return {
       comps:[
         // {
@@ -32,15 +32,7 @@ export default {
         //     }
         //   }
         // },
-        // // {
-        // //   tag:"h1",
-        // //   options:{
-        // //     domProps: {
-        // //       innerHTML:'Hola pajudito'
-        // //     }
-        // //   }
-        // // },
-        // {
+        //{
         //   tag:footer,
         //   options:{
         //     ref:'myfooter'
@@ -59,78 +51,108 @@ export default {
         //   }
         // },
         // // Asi se crea contenido con las etiquetas de Vuetify
-        // // {
-        // //   tag:comp.VBtn,
-        // //   options:{
-        // //     props:{
-        // //       color:'red darken-2',
-        // //       small:true,
-        // //       dark:true
-        // //     }
-        // //   },
-        // //   children:[
-        // //     {
-        // //       tag:comp.VIcon,
-        // //       options:{
-        // //         domProps: {
-        // //           innerHTML:'edit'
-        // //         },  
-        // //       }   
-        // //     },
-        // //     {
-        // //       tag:'span',
-        // //       options:{
-        // //         domProps: {
-        // //           innerHTML:'editar'
-        // //         },  
-        // //       }
-        // //     }
-        // //   ]
-        // // },
         // {
-        //   tag:layout,
+        //   tag:'div',
         //   options:{
-        //     ref:'layout'
+        //     style:{
+        //       border:'1px solid red'
+        //     },
+        //     key:'layout_1'
         //   }
         // },
         // {
-        //   tag:layout_sec2,
+        //   tag:'div',
         //   options:{
-        //     ref:'layout_sec2'
-        //   }
+        //     style:{
+        //       margin:"2px",
+        //       border:'1px solid red'
+        //     },
+        //     key:'layout_2'
+        //   },
+        //   parent:'layout_1'
         // },
         // {
-        //   tag:layout_sec3,
+        //   tag:'div',
         //   options:{
-        //     ref:'layout_sec3'
-        //   }
+        //     style:{
+        //       margin:"2px",
+        //       border:'1px solid red'
+        //     },
+        //     key:'layout_3'
+        //   },
+        //   parent:'layout_2'
         // },
-      ],
-      mapComps:{}
+        // {
+        //   tag:'div',
+        //   options:{
+        //     style:{
+        //       margin:"2px",
+        //       border:'1px solid red'
+        //     },
+        //     key:'layout_4'
+        //   },
+        //   parent:'layout_3'
+        // },
+        // {
+        //   tag:'div',
+        //   options:{
+        //     style:{
+        //       margin:"2px",
+        //       border:'1px solid red'
+        //     },
+        //     key:'layout_5'
+        //   },
+        //   parent:'layout_3'
+        // },
+        // {
+        //   tag:'div',
+        //   options:{
+        //     style:{
+        //       margin:"2px",
+        //       border:'1px solid red'
+        //     },
+        //     key:'layout_6'
+        //   },
+        //   parent:'layout_3'
+        // }
+      ]
     }
   },
   render(createElement){
     var addchildrens = (children) => {
       return children.map((node) => {
+        let childrens = this.comps.filter(i => i.parent === node.options.key) 
         return createElement(node.tag,
           JSON.parse(JSON.stringify(node.options)),
-          node.children != undefined ? addchildrens(node.children):''
+          childrens.length > 0 ? addchildrens(childrens):''
         )
       })
     }
-    return createElement('div',this.comps.map((val)=>{ 
-      return createElement(val.tag, JSON.parse(JSON.stringify(val.options)),
-        val.children != undefined ? addchildrens(val.children):''
-      )
+    return createElement(draggable,this.comps.map((val)=>{
+      if(val.parent == undefined || val.parent == ""){
+        let childrens = this.comps.filter(i => i.parent === val.options.key)
+        return createElement(val.tag, JSON.parse(JSON.stringify(val.options)),
+          childrens.length > 0 ? addchildrens(childrens):''
+        )
+      }
     }))
   },
   methods:{
     addElement(evt){
+      // let listComponents = {
+      //   "layout":[layout,0],
+      //   "toolbar":[toolbar,0],
+      //   "subtoolbar":[subtoolbar,0],
+      //   "footer":[footer,0]
+      // }
       listComponents[evt.tag][1] += 1
+      //evt.tag+'_'+listComponents[evt.tag][1]
+      //example layout_1
       let elementkey = `${evt.tag}_${listComponents[evt.tag][1]}` 
-
+      let instanceVue = listComponents[evt.tag][0]
+      //console.log("key",elementkey)
       this.comps.push({
-        tag:listComponents[evt.tag][0],
+        tag:instanceVue,
         options:{
           props:{
             idname: elementkey,
@@ -138,13 +160,12 @@ export default {
           },
           key: elementkey
         },
-      }),
-      this.mapComps[elementkey] = this.comps.length - 1
+        parent: evt.parent === undefined ? "" : evt.parent
+      })
     },
     removeElement(evt){
-      console.log(evt,"delete",this.mapComps)
-      this.comps.splice(this.mapComps[evt.idname],1)
-      delete this.mapComps[evt.idname]
+      let i = this.comps.findIndex(j => j.options.key === evt.keyname)
+      this.comps.splice(i,1)
     }
   }
 }
