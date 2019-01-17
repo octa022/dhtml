@@ -92,11 +92,11 @@
         var lista=document.getElementById('bloque');
         alert('La cantidad de hijos del nodo div es:'+lista.childNodes.length);  
         var cadena="";
-        for(var x=0;x<lista.childNodes.length;x++){
-          if (lista.childNodes[x].nodeType==Node.TEXT_NODE)
-            cadena=cadena+"Nodo tipo Texto\n";
-          if (lista.childNodes[x].nodeType==Node.ELEMENT_NODE)
-            cadena=cadena+"Nodo tipo Elemento\n";
+        for(var x=0;x&lt;lista.childNodes.length;x++){
+          if (lista.childNodes[x].nodeType &#61;= Node.TEXT_NODE){
+            cadena = cadena+&#8220;Nodo tipo Texto \n&#8221;;}
+          if (lista.childNodes[x].nodeType == Node.ELEMENT_NODE)
+            cadena=cadena+&#8220;Nodo tipo Elemento\n&#8221;;
         }
         alert(cadena);
       }
@@ -252,8 +252,9 @@
 export default {
   data() {
     return {
-      
-      }
+      contador : 1, //Verificar por que esta variable no puede estar afuera...
+      contadort : 1
+    }
   },
   methods: {
     cambiarColor(){
@@ -280,17 +281,15 @@ export default {
     },
     agregar()
     {
-      var contador=1; //Verificar por que esta variable no puede estar afuera...
-      var nt=document.createTextNode(' Nuevo texto '+contador+' - ');
+      var nt=document.createTextNode(' Nuevo texto '+this.contador+' - ');
       var nparrafo=document.getElementById('parrafo');
       nparrafo.appendChild(nt);
-      contador++;
+      this.contador++;
     },
     agregarTwo(){
-      var contadort=1;
       var nuevoelemento=document.createElement("p"); 
-      var nuevotexto=document.createTextNode("Hola Mundo " + contadort + " - ");
-      contadort++;
+      var nuevotexto=document.createTextNode("Hola Mundo " + this.contadort + " - ");
+      this.contadort++;
       nuevoelemento.appendChild(nuevotexto);
       var puntero=document.getElementById("parrafos");
       puntero.appendChild(nuevoelemento);
