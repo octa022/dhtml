@@ -7,18 +7,14 @@
         </h1>
       </v-flex>
     </v-layout>
-    <v-layout row wrap my-5>
+    <v-layout row wrap align-center my-5>
       <v-flex xs12 md8>
-        <v-card>
-          <v-card-text class="px-2">
-            <p>
+            <p class="px-2">
               Este término inicio a fines de los años 90 y principios de los 2000 para describir cualquier tipo de funcionalidad
               que de alguna manera fuera ámbito de la navegación regular de sitios web. La definición de DHTML (HTML Dinámico), 
               podría ser que es “HTML que puede cambiar incluso despues de que una página se haya cargado en un navegador”. 
               En su momento esta era una palabra de moda difícil de definir e inconcebible de hacer.
             </p>
-            </v-card-text>
-        </v-card>
       </v-flex>
       <v-flex xs12 md4>
         <v-card dark color="primary">
@@ -26,23 +22,19 @@
         </v-card>
       </v-flex>
     </v-layout>
-    <v-layout row wrap my-5>
+    <v-layout row wrap align-center my-5>
       <v-flex xs12 md3>
         <v-card dark color="primary">
-            <v-img src="https://cdn.vuetifyjs.com/images/lists/ali.png" height="300px">ABAJO JS</v-img>
+            <v-img src="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png" height="300px">ABAJO JS</v-img>
         </v-card>
       </v-flex>
       <v-flex xs12 md6>
-        <v-card>
-          <v-card-text class="px-2">
-            <p>
+            <p class="px-2">
               Las últimas tendencias en desarrollo de aplicaciones web están relacionadas con DHTML. 
               En la antigüedad este concepto era muy complejo ya que se buscaba que el sitio siguiera siendo funcional sin JavaScript. 
               En la actualidad se han producido múltiples avances en las tecnologías front-end, como CSS3, HTML5, JQuery, etc.., 
               el primer innovador de esta herramienta fue Google con Gmail.
             </p>
-            </v-card-text>
-        </v-card>
       </v-flex>
       <v-flex xs12 md3>
         <v-card>
@@ -50,16 +42,12 @@
         </v-card>
       </v-flex>
     </v-layout>
-    <v-layout row wrap my-5>
+    <v-layout row wrap align-center my-5>
       <v-flex xs12>
-        <v-card>
-          <v-card-text class="px-2">
-            <p>
+            <p class="px-2">
               Se está busca la fusión de todos los elementos de frontend, los desarrollos actuales con React y Vue se asemejan al 
       Código DHTML de 1999, antes hacías todo con JavaScript porque se podía, pero ahora se hace porque tiene sentido.
             </p>
-            </v-card-text>
-        </v-card>
       </v-flex>
       <v-flex xs12 md3>
         <v-card >
@@ -102,21 +90,20 @@
           ></v-text-field>
       </v-flex>
     </v-layout>
-    <v-btn @click="StarWars()">Regreso al futuro: un desplazador DHTML desde 2001</v-btn>
+    <v-btn @click="StarWars($event)">Regreso al futuro: un desplazador DHTML desde 2001</v-btn>
   </v-container>
 </template>
 <script>
   export default {
     methods:{
-      StarWars: function(){
-        let http_request = new XMLHttpRequest();
-        http_request.overrideMimeType('text/xml');
-        http_request.open('GET', 'https://swapi.co/api/people/1/', true);
-        http_request.send();
-        console.log(http_request)
-        alert('hey')
+      StarWars: function(e){
+        let number = Math.floor(Math.random() * 87) + 1
+        e.target.innerText = "Y en Star Wars eres...."
+        this.axios.get(`https://swapi.co/api/people/${number}/`).then((response) => {
+          console.log(response.data)
+          e.target.innerText = response.data.name
+        })
       }
     }
-
   }
 </script>
