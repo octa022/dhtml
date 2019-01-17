@@ -23,3 +23,10 @@
     </div>
 </v-layout>
 </template>
+<script>
+export default {
+  props:{
+    mode:Number
+  }
+}
+</script>

@@ -36,17 +36,32 @@
 </template>
 <script>
 export default{
+  // {
+  //   props:{
+  //     idname: elementkey,
+  //     mode: evt.number
+  //   },
+  //   key: elementkey
+  // }
   methods:{
     createRow(number){
       this.$emit("createElement",{
         "tag": "layout",
-        "number": number
+        "options":{
+          props:{
+            mode:number
+          }
+        }
       })
     },
-    createToolBar(){
+    createToolBar(number){
       this.$emit("createElement",{
         "tag": "toolbar",
-        "number": number
+        "options":{
+          props:{
+            mode:number
+          }
+        }
       })
     }
   } 

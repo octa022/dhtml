@@ -151,15 +151,11 @@ export default {
       let elementkey = `${evt.tag}_${listComponents[evt.tag][1]}` 
       let instanceVue = listComponents[evt.tag][0]
       //console.log("key",elementkey)
+      evt.options.key = elementkey
+      evt.options.props.idname = elementkey
       this.comps.push({
         tag:instanceVue,
-        options:{
-          props:{
-            idname: elementkey,
-            mode: evt.number
-          },
-          key: elementkey
-        },
+        options:evt.options,
         parent: evt.parent === undefined ? "" : evt.parent
       })
     },
