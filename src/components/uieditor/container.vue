@@ -4,6 +4,7 @@
   <v-navigation-drawer
       stateless
       right
+      v-if="$store.getters.getDrawerRight"
       clipped
       permanent
       hide-overlay
