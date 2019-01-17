@@ -7,7 +7,8 @@
     <h4 class="text-sm-center"><u>Layout</u></h4>
   </v-flex>
   <v-flex xs12 sm6>
-    <v-btn class="sec2">
+    <!-- Cada boton emite el componente que desea crear -->
+    <v-btn class="sec2" @click="createToolBar(1)">
       <v-icon>fab fa-windows</v-icon>
     </v-btn>
   </v-flex>
@@ -39,6 +40,12 @@ export default{
     createRow(number){
       this.$emit("createElement",{
         "tag": "layout",
+        "number": number
+      })
+    },
+    createToolBar(){
+      this.$emit("createElement",{
+        "tag": "toolbar",
         "number": number
       })
     }

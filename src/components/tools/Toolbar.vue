@@ -1,5 +1,5 @@
 <template>
-<v-layout row wrap>
+<v-layout row wrap v-if="mode == 1">
   <!-- <v-toolbar fixed color="blue-grey" class="white--text"> -->
   <v-toolbar color="blue-grey" class="white--text">
     <v-btn flat icon to='/' outline color="transparent">
