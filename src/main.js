@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
@@ -8,7 +10,7 @@ import VuePrism from 'vue-prism'
 import draggable from 'vuedraggable'
 
 Vue.use(draggable)
-
+Vue.use(VueAxios, axios)
 Vue.use(VuePrism)
   import 'prismjs/themes/prism.css'  //Carga el css generico
   import 'prismjs/themes/prism-okaidia.css' // Carga el tema Negro
