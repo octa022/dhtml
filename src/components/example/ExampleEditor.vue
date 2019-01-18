@@ -5,11 +5,12 @@
         <h2 class="display-2 pb-2 text-xs-center">UIEditor</h2> 
         <p class="headline text-xs-justify">
           Genial, en esta sección vamos a entender de una forma rápida y practica como funciona el ejemplo llamado 
-          “Editor”, el cual consiste en generar elementos en el DOM luego de que ya se encuentre renderizada la web (Con VueJS). 
+          “Editor”, el cual consiste en generar elementos en el DOM, con una función encargada de simular 
+          un DOM virtual que interpreta todos los componentes de vue. 
         </p>
         <p class="headline text-xs-justify">
           Debemos tener claro que dicho ejemplo lo componen aproximadamente 5 archivos, y el proceso de anexo de componentes se 
-          realizo en VueJS. Dichos archivos son:
+          realizó en VueJS. Dichos archivos son:
         </p>
         <ul>
           <li> <h3>toolsPanel.vue</h3></li>
@@ -23,15 +24,15 @@
         </p>
         <h2 class="display-1 text-sm-center py-3">Layout.vue</h2>
         <p class="headline text-xs-justify py-3">
-          El Layout.vue es un componente que en su interior tiene varias estructuras predefinas, en este caso Layouts 
+          El Layout.vue es un componente que en su interior tiene varias estructuras predefinidas, en este caso Layouts 
           como su nombre nos indica.
         </p>
         <v-flex xs12>
           <img style="width: 700px;" src="@/../public/img/layouts.png">          
         </v-flex>
         <p class="headline text-xs-justify py-3">
-          Cada área representada anteriormente es un contenedor distinto, el cual se representara mediante una 
-          condicional que evalué el numero de ítem que se manda a representar. Un ejemplo de código del template del 
+          Cada área representada anteriormente es un contenedor distinto, el cual se renderizará mediante una 
+          condicional que evalué el número de ítems que se le indique representar. Un ejemplo de código del template del 
           mismo es:
         </p>
   <pre class="language-html">
@@ -53,8 +54,8 @@
     </code>
   </pre>
         <p class="headline text-xs-justify py-3">
-          Cabe resaltar que en el script se encuentran los datos del los elementos representados y la función para 
-          eliminar dichos elementos.Un ejemplo del código del Script del mismo es:
+          Cabe resaltar que en el script se encuentran las características de dichos elementos y una función para 
+          eliminarlos. Un ejemplo del código del Script del mismo es:
         </p>
   <pre class="language-js">
     <code style="box-shadow: none;">
@@ -76,10 +77,9 @@
   </pre>
         <h2 class="display-1 text-sm-center py-4">toolsPanel.vue</h2>
         <p class="headline text-xs-justify py-3">
-          El Toolspanel da la emisión para agregar un elemento en el bloque principal. Esta se genera mediante los botones, 
-          en el cual cuando se da click sobre cada uno de ellos, detona una función (@click=createRow(n)). la cual emite 
-          una señal para crear un elemento con el nombre de la etiqueta y  las características del componente y se definen 
-          en las opciones.
+          El Toolspanel como su nombre lo dice es una caja de herramientas la cual posee botones con los componentes
+          disponibles, al hacer click en alguno de estos este panel emite una señal para crear un elemento con el nombre 
+          de la etiqueta y las características del componente(opciones). en el bloque principal, mediante una función (@click=createRow(n)).        
         </p>
         <v-flex xs12>
           <img style="width: 200px;" src="@/../public/img/toolsPanel.png">          
@@ -138,7 +138,7 @@
   </pre>
         <h2 class="display-1 text-sm-center py-4">Container.vue y Container.js</h2>
         <p class="headline text-xs-justify py-3">
-          El container.vue monitorea el toolspanel.  Al detectar el evento (createElement), 
+          El container.vue monitorea el toolspanel. Al detectar el evento (createElement), 
           se enviá dicha información a la función para luego remitirla al VueComponent (addElement($event)).
         </p>
         <p class="headline text-xs-justify pb-3">
@@ -201,7 +201,7 @@
         <p class="headline text-xs-justify py-3">
           En este componente se realiza la magia (Por decirle de alguna forma), pues aquí solo se encuentra un script en 
           el cual se recibe la información del componente a crear y los renderiza mediante la función render de VueJS, a 
-          su vez, se lleva un orden de los mismos mediante una lista de objetos, como la que se muestra a continuación:
+          su vez, se lleva un orden de los mismos mediante un objeto de listas, como la que se muestra a continuación:
         </p>
   <pre class="language-js">
     <code style="box-shadow: none;">
@@ -214,7 +214,7 @@
     </code>
   </pre>
         <p class="headline text-xs-justify py-3">
-          Dentro del export default, se encuentran los datos que retornaremos, en este caso se retorna el objeto comps, como 
+          Dentro del export default, se encuentran las variables de instancia retornaremos, en este caso se retorna comps, como 
           se muestra a continuación:
         </p>
   <pre class="language-js">
@@ -255,10 +255,10 @@
     </code>
   </pre>
         <p class="headline text-xs-justify py-3">
-          Aún dentro del export default, pero justo debajo de la funcion render(...){...}, se encuentran los metodos y funciones 
-           a ejecutar, en este caso, son la función addElement(...){...}, la cual recibe la información de cada objeto a crear 
-           y lo agrega al objeto comps. Por otra parte se encuentra la función removeElement(...){...}, la cual recibe el index 
-           del elemento a eliminar, lo busca en comps y lo elimina. El código es el siguiente:
+          Aún dentro del export default, pero justo debajo de la función render(...){...}, se encuentran los metodos a ejecutar, 
+          en este caso, son la función addElement(...){...}, la cual recibe la información de cada objeto a crear 
+          y lo agrega al lista comps. Por otra parte se encuentra la función removeElement(...){...}, la cual recibe el index 
+          del elemento a eliminar, lo busca en comps y lo elimina. El código es el siguiente:
         </p>
   <pre class="language-js">
     <code style="box-shadow: none;">
