@@ -7,6 +7,7 @@ import example2 from './components/example/ExampleTwo'
 import example3 from './components/example/ExampleThree'
 import example4 from './components/example/ExampleFour'
 import example5 from './components/example/ExampleFive'
+import exampeeditor from './components/example/ExampleEditor.vue'
 import ui from './components/uieditor/container.vue'
 
 Vue.use(Router)
@@ -61,6 +62,11 @@ export default new Router({
       path: '/example5',
       name: 'example5',
       component: example5
+    },
+    {
+      path: '/exampleeditor',
+      name: 'exampleeditor',
+      component: exampeeditor
     }
   ]
 })
