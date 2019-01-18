@@ -23,7 +23,8 @@
       <span>{{name}}</span>
       
     </v-tooltip>
-      <v-img style="character" src="https://pixeldotartdotblog.files.wordpress.com/2016/12/donaldtrump.png?w=924" height="50px" width="50px" contain></v-img>
+      
+      <v-img id="enemy" :style="enemy" src="https://i.pinimg.com/originals/f0/c8/43/f0c84304e094dec729db296558e03ac9.png" height="50px" width="50px" contain></v-img>
         
     </v-container>
 </template>
@@ -42,6 +43,8 @@ export default {
       hex : '',
       X: 0,
       Y: 0,
+      XE:0,
+      YE:0,
       person: "https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/8/87/Link_pixel.png/revision/latest?cb=20130427125558"
     }
   },
@@ -65,14 +68,28 @@ export default {
           else if(e.keyCode == 32){
               this.X = this.X + 150
           }
+          this.DeleteEnemy()
         },
-        cloneEnemy: function(){return},
-        createEnemy: function(){return}
-
+        DeleteEnemy: function(){
+          if(this.name != "success"){
+            if(this.Y <= this.YE+50 && this.Y >= this.YE+20){
+              if(this.X <= this.XE+60 && this.X >= this.XE-40){
+                let elemento = document.getElementById("enemy")
+                elemento.parentNode.removeChild(elemento);
+                this.name="success"
+              }
+            }
+          }
+        }
   },
   computed: {
       character: function () {
             return this.hex+"transform:translate("+ this.X +"px,"+ this.Y +"px);"
+        },
+      enemy: function () {
+            this.XE = Math.floor(Math.random() * 1200)
+            this.YE = Math.floor(Math.random() * 500)
+            return "transform:translate("+ this.XE  +"px,"+ this.YE +"px);"
         }
     },
   watch: {
@@ -94,6 +111,23 @@ export default {
         }
         else{
             this.hex = "filter: hue-rotate(0deg) brightness(100%) contrast(100%);"
+        }
+    },
+    name: function (val) {
+        if(val == "Jesus"){
+            this.person = "http://pixelartmaker.com/art/9be7d65e903fedc.png"
+        }
+        else if(val == "Samus"){
+            this.person = "https://ya-webdesign.com/images/samus-pixel-art-png-4.png"
+        }
+        else if(val == "Mario"){
+            this.person = "https://i0.wp.com/luiscavaco.com/wp-content/gallery/posts/cssmario.gif?resize=600%2C630"
+        }
+        else if(val == "Trump"){
+            this.person = "https://pixeldotartdotblog.files.wordpress.com/2016/12/donaldtrump.png?w=924"
+        }
+        else{
+            this.person = "https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/8/87/Link_pixel.png/revision/latest?cb=20130427125558"
         }
     }
   }
