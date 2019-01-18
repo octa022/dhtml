@@ -142,4 +142,3 @@ export default {
     transition-duration: 1s;
 }
 </style>
-
