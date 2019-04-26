@@ -8,6 +8,11 @@ import store from './store'
 import VueDragResize from 'vue-drag-resize'
 import VuePrism from 'vue-prism'
 import draggable from 'vuedraggable'
+import VeeValidate, { Validator } from 'vee-validate';
+import messages from 'vee-validate/dist/locale/es';
+
+Validator.localize('es', messages);
+Vue.use(VeeValidate,{locale:"es"});
 
 Vue.use(draggable)
 Vue.use(VueAxios, axios)
