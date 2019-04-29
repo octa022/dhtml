@@ -4,6 +4,7 @@ import toolbar from "../tools/Toolbar.vue"
 import subtoolbar from "../tools/SubToolbar.vue"
 import layout from "../layout/Layout.vue"
 import footer from "../tools/Footer.vue"
+import formfields from "../inputs/TextInputBrick.vue"
 // Asi se importan las marcas de Vuetify
 import * as comp from 'vuetify/lib/components'
 import draggable from 'vuedraggable'
@@ -12,26 +13,74 @@ let listComponents = {
   "layout":[layout,0],
   "toolbar":[toolbar,0],
   "subtoolbar":[subtoolbar,0],
-  "footer":[footer,0]
+  "footer":[footer,0],
+  "formfields":[formfields,0]
 }
 
 export default {
   data(){
     return {
       comps:[
-        // {
-        //   tag: comp.VBtn,
-        //   options:{
-        //     directives:{
-        //       value:"prueba"
-        //     },
-        //     on:{
-        //       click: function(event){
-        //         console.log('click')
-        //       }
-        //     }
-        //   }
-        // },
+        {
+          tag: formfields,
+          options:{
+            props:{
+              brickJSON:{
+                "fieldCode" : "field1", 
+                "fieldValue": "",
+                "fieldWidth":"xs12 md4",
+                "fieldColor":"red",
+                "dataClass":"",
+                "dataStyle":"",
+                "label" : "Chavista sin sentido",
+                "labelPosition" : "",
+                "append-icon":"",
+                "prepend-icon":"",  
+                "defaultValue" : "",  
+                "brickType" : "TEXTINPUT",
+                "visible" : true,
+                "prefix":"Patria",
+                "suffix":"",
+                "enabled" : true,
+                "validationRule" : {
+                  required:true
+                },
+                "hint" : ""
+              },
+            },
+            key:"brickprueba"
+          }
+        },
+        {
+          tag: formfields,
+          options:{
+            props:{
+              brickJSON:{
+                "fieldCode" : "field2", 
+                "fieldValue": "",
+                "fieldWidth":"xs12 md6",
+                "fieldColor":"red",
+                "dataClass":"",
+                "dataStyle":"",
+                "label" : "Prueba",
+                "labelPosition" : "",
+                "append-icon":"",
+                "prepend-icon":"",  
+                "defaultValue" : "",  
+                "brickType" : "TEXTINPUT",
+                "visible" : true,
+                "prefix":"Brick",
+                "suffix":"a llegado",
+                "enabled" : true,
+                "validationRule" : {
+                  required:true
+                },
+                "hint" : ""
+              },
+            },
+            key:"brickprueba2"
+          }
+        },
         //{
         //   tag:footer,
         //   options:{

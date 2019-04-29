@@ -9,6 +9,7 @@ import example4 from './components/example/ExampleFour'
 import example5 from './components/example/ExampleFive'
 import exampeeditor from './components/example/ExampleEditor.vue'
 import ui from './components/uieditor/container.vue'
+import text from './components/inputs/TextInputBrick.vue'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/prueba',
       name: 'prueba',
       component: prueba
+    },
+    {
+      path: '/text',
+      name: 'text',
+      component: text
     },
     {
       path: '/example1',
