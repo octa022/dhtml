@@ -1,4 +1,8 @@
+import { Chrome } from "vue-color";
 export default {
+  components: {
+    "chrome-picker": Chrome
+  },
   data() {
     return {
       // brickJSON: {
@@ -30,8 +34,8 @@ export default {
         dataStyle: "",
         label: "",
         labelPosition: "",
-        "append-icon": "",
-        "prepend-icon": "",
+        append: "",
+        prepend: "",
         defaultValue: "",
         brickType: "",
         visible: true,
@@ -41,8 +45,16 @@ export default {
         validationRule: {},
         hint: ""
       },
-      items: ["foo", "bar", "fizz", "buzz"],
-      value: ["foo", "bar", "fizz", "buzz"]
+      widths: ["xs12", "lg12", "md6", "sm6"],
+      labelPosition: ["top", "left", "right"],
+      prepend: [
+        { name: "Papelera", icon: "fa-trash" },
+        { name: "Bloquear", icon: "fa-ban" },
+        { name: "Restar", icon: "fa-minus" },
+        { name: "Aceptar", icon: "fa-check" },
+        { name: "Copiar", icon: "fa-copy" },
+        { name: "Comentarios", icon: "fa-comments" }
+      ]
     };
   },
   methods: {},
