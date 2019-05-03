@@ -47,14 +47,25 @@ export default {
       },
       widths: ["xs12", "lg12", "md6", "sm6"],
       labelPosition: ["top", "left", "right"],
+      append: [
+        { name: "", icon: "" },
+        { name: "Calendario", icon: "fa-calendar-alt" },
+        { name: "Dirección", icon: "fa-address-book" },
+        { name: "Siguiente", icon: "fa-arrow-right" },
+        { name: "Calculadora", icon: "fa-calculator" },
+        { name: "Guadar", icon: "fa-coins" },
+        { name: "tarjeta de Credito", icon: "fa-credit-card" }
+      ],
       prepend: [
+        { name: "", icon: "" },
         { name: "Papelera", icon: "fa-trash" },
         { name: "Bloquear", icon: "fa-ban" },
         { name: "Restar", icon: "fa-minus" },
         { name: "Aceptar", icon: "fa-check" },
         { name: "Copiar", icon: "fa-copy" },
         { name: "Comentarios", icon: "fa-comments" }
-      ]
+      ],
+      brickType: ["textinput", "switch", "checkbox"]
     };
   },
   methods: {},
