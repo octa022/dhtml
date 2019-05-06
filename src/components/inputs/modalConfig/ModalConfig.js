@@ -45,7 +45,11 @@ export default {
         validationRule: {},
         hint: ""
       },
-      widths: ["xs12", "lg12", "md6", "sm6"],
+      widths: ["xs", "lg", "md", "sm"],
+      width: [],
+      widthsVal: "",
+      widthsNumber: "",
+      modalWidths: false,
       labelPosition: ["top", "left", "right"],
       append: [
         { name: "", icon: "" },
@@ -68,6 +72,15 @@ export default {
       brickType: ["textinput", "switch", "checkbox"]
     };
   },
-  methods: {},
+  methods: {
+    prueba(val, val2) {
+      // console.log(val, val2);
+      let valor = val + val2;
+      console.log(valor);
+      this.width.push(valor);
+      console.log(this.width);
+    },
+    muestra() {}
+  },
   mounted() {}
 };

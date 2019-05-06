@@ -102,7 +102,7 @@
           <div slot="header" class="font-weight-medium text-uppercase">Inputs</div>
           <v-flex xs12 sm6>
             <v-btn class="sec13" @click.prevent="dialogConfig=true"></v-btn>
-            <v-dialog v-model="dialogConfig" persistent max-width="80%">
+            <v-dialog v-model="dialogConfig" persistent max-width="99%">
               <v-card>
                 <v-card-title class="headline">Ingrese la configuracion del Input</v-card-title>
                 <modalConf ref="modalConf"/>
