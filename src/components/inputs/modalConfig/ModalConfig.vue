@@ -44,9 +44,6 @@
               <!-- @change="validateChangeSelect(1)" -->
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
-              <chrome-picker disableAlpha v-model="brickJSON.fieldColor"></chrome-picker>
-            </v-flex>
-            <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
                 v-model="brickJSON.dataClass"
                 name="dataClass"
@@ -82,7 +79,7 @@
                 key="label-input"
               ></v-text-field>
             </v-flex>
-            <v-flex lg4 md6 xs12 pr-4>
+            <v-flex lg2 md6 xs12 pr-4>
               <v-select
                 :items="labelPosition"
                 v-model="brickJSON.labelPosition"
@@ -95,8 +92,20 @@
               ></v-select>
               <!-- @change="validateChangeSelect(1)" -->
             </v-flex>
-            <v-flex lg4 md6 xs12 pr-4>
-              {{prepend}}>
+            <v-flex lg2 md6 xs12 pr-4>
+              <v-select
+                :items="brickType"
+                v-model="brickJSON.brickType"
+                label="brickType"
+                data-vv-as="brickType"
+                key="brickType-input"
+                name="brickType"
+                :error-messages="errors.collect('brickType')"
+                v-validate="'required'"
+              ></v-select>
+              <!-- @change="validateChangeSelect(1)" -->
+            </v-flex>
+            <v-flex lg2 md3 xs12 pr-4>
               <v-select
                 :items="append"
                 v-model="brickJSON.append"
@@ -105,28 +114,26 @@
                 key="append-input"
                 name="append"
                 :error-messages="errors.collect('append')"
-                v-validate="'required'"
+                v-validate
+                item-text="name"
+                item-value="name"
               >
-                <template v-slot:selection="data">
-                  <template v-if="typeof data.item.name !== 'object'">
-                    <v-list-tile-content v-text="data.item"></v-list-tile-content>
-                  </template>
-                  <template v-else>
-                    <!-- <v-list-tile-avatar>
-                      <img :src="data.item.avatar">
-                    </v-list-tile-avatar>-->
-
-                    <v-icon>{{data.item.icon}}</v-icon>
-                    <v-list-tile-content>
-                      <!-- <v-list-tile-title v-html="data.item.name"></v-list-tile-title>
-                      <v-list-tile-sub-title v-html="data.item.group"></v-list-tile-sub-title>-->
-                    </v-list-tile-content>
-                  </template>
+                <template slot="selection" slot-scope="append">
+                  <v-flex px-2 xs12>
+                    <v-icon v-text="append.item.icon"></v-icon>
+                    <span style="padding-left: 5px;">{{ append.item.name }}</span>
+                  </v-flex>
+                </template>
+                <template slot="item" slot-scope="append">
+                  <v-flex px-2 xs12>
+                    <v-icon v-text="append.item.icon"></v-icon>
+                    <span style="padding-left: 5px;">{{ append.item.name }}</span>
+                  </v-flex>
                 </template>
               </v-select>
               <!-- @change="validateChangeSelect(1)" -->
             </v-flex>
-            <!-- <v-flex lg4 md6 xs12 pr-4>
+            <v-flex lg2 md3 xs12 pr-4>
               <v-select
                 :items="prepend"
                 v-model="brickJSON.prepend"
@@ -135,10 +142,88 @@
                 key="prepend-input"
                 name="prepend"
                 :error-messages="errors.collect('prepend')"
+                v-validate
+                item-text="name"
+                item-value="name"
+              >
+                <template slot="selection" slot-scope="prepend">
+                  <v-flex px-2 xs12>
+                    <v-icon v-text="prepend.item.icon"></v-icon>
+                    <span style="padding-left: 5px;">{{ prepend.item.name }}</span>
+                  </v-flex>
+                </template>
+                <template slot="item" slot-scope="prepend">
+                  <v-flex px-2 xs12>
+                    <v-icon v-text="prepend.item.icon"></v-icon>
+                    <span style="padding-left: 5px;">{{ prepend.item.name }}</span>
+                  </v-flex>
+                </template>
+              </v-select>
+              <!-- @change="validateChangeSelect(1)" -->
+            </v-flex>
+            <v-flex lg4 md6 xs12 pr-4>
+              <v-text-field
+                v-model="brickJSON.defaultValue"
+                name="defaultValue"
+                :error-messages="errors.collect('defaultValue')"
+                label="defaultValue"
+                class
+                data-vv-as="defaultValue"
                 v-validate="'required'"
-            ></v-select>-->
-            <!-- @change="validateChangeSelect(1)" -->
-            <!-- </v-flex> -->
+                key="defaultValue-input"
+              ></v-text-field>
+            </v-flex>
+            <v-flex lg2 md6 xs12 pr-4>
+              <v-switch
+                v-model="brickJSON.visible"
+                :label="`Visible: ${brickJSON.visible.toString()}`"
+              ></v-switch>
+            </v-flex>
+            <v-flex lg2 md6 xs12 pr-4>
+              <v-switch
+                v-model="brickJSON.enabled"
+                :label="`Enabled: ${brickJSON.enabled.toString()}`"
+              ></v-switch>
+            </v-flex>
+            <v-flex lg4 md6 xs12 pr-4>
+              <v-text-field
+                v-model="brickJSON.prefix"
+                name="prefix"
+                :error-messages="errors.collect('prefix')"
+                label="prefix"
+                class
+                data-vv-as="prefix"
+                v-validate="'required'"
+                key="prefix-input"
+              ></v-text-field>
+            </v-flex>
+            <v-flex lg4 md6 xs12 pr-4>
+              <v-text-field
+                v-model="brickJSON.suffix"
+                name="suffix"
+                :error-messages="errors.collect('suffix')"
+                label="suffix"
+                class
+                data-vv-as="suffix"
+                v-validate="'required'"
+                key="suffix-input"
+              ></v-text-field>
+            </v-flex>
+            <v-flex lg4 md6 xs12 pr-4>
+              <v-text-field
+                v-model="brickJSON.hint"
+                name="hint"
+                :error-messages="errors.collect('hint')"
+                label="hint"
+                class
+                data-vv-as="hint"
+                v-validate="'required'"
+                key="hint-input"
+              ></v-text-field>
+            </v-flex>
+            <v-flex lg12 md6 xs12 pr-4>
+              <chrome-picker disableAlpha v-model="brickJSON.fieldColor"></chrome-picker>
+            </v-flex>
           </v-layout>
         </v-form>
       </v-flex>
