@@ -10,8 +10,8 @@
   "description" : "",
   "prefix":"",
   "suffix":"",
-  "append-icon":"",
-  "prepend-icon":"",  
+  "append":"",
+  "prepend":"",  
   "defaultValue" : "",  
   "brickType" : "TEXTINPUT",
   "visible" : true,
@@ -33,8 +33,8 @@ export default {
           "dataStyle":"",
           "label" : "",
           "labelPosition" : "",
-          "append-icon":"",
-          "prepend-icon":"",  
+          "append":"",
+          "prepend":"",  
           "defaultValue" : "",  
           "brickType" : "TEXTINPUT",
           "visible" : true,
@@ -47,7 +47,38 @@ export default {
       }
     }
   },
-  mounted(){
-    console.log(this.brickJSON,"JSON")
+  data(){
+    return {
+      jformBRICK:{
+        "fieldCode" : "", 
+        "fieldValue": "",
+        "fieldWidth":"xs12 md4",
+        "fieldColor":"",
+        "dataClass":"",
+        "dataStyle":"",
+        "label" : "",
+        "labelPosition" : "",
+        "append":"",
+        "prepend":"",  
+        "defaultValue" : "",  
+        "brickType" : "TEXTINPUT",
+        "visible" : true,
+        "prefix":"",
+        "suffix":"",
+        "enabled" : true,
+        "validationRule" : {},
+        "hint" : ""
+      }
+    }
+  },
+  methods:{
+    assingData(val){
+      this.jformBRICK = val
+    }
+  },
+  watch:{
+    brickJSON(val){
+      this.jformBRICK = val
+    }
   }
 }
