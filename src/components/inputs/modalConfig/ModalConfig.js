@@ -51,7 +51,7 @@ export default {
       widthsText: "",
       width: [],
       modalWidths: false,
-      widthIndex: "",
+      widthIndex: -1,
       labelPosition: ["top", "left", "right"],
       append: [
         { name: "", icon: "" },
@@ -76,25 +76,52 @@ export default {
   },
   methods: {
     addIndexWidth(val, val2) {
-      // console.log(val, val2);
       this.widthsText = val + val2;
-      // console.log("Esto es lo que va para el arreglo: ", this.widthsText);
-      if (this.width.includes(this.widthsText)) {
-        console.log("Este tamano ya fue agregado");
-      } else {
-        // console.log("Se agrego con exito");
+      if (this.widthIndex == -1) {
         this.width.push(this.widthsText);
+        console.log(
+          "Este es el arreglo de los tamaños sin tratar: ",
+          this.width
+        );
+        this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+        console.log(
+          "Asi se va llenando el textfiel: ",
+          this.brickJSON.fieldWidth
+        );
+        this.dropWidth(val);
+      } else {
+        console.log("Este es sin la modificacion: ", this.width);
+        this.width[this.widthIndex] = this.widthsText;
+        this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+        console.log("Este es con la modificacion: ", this.width);
+        console.log(
+          "Este es lo que se le mandara a miguel: ",
+          this.brickJSON.fieldWidth
+        );
       }
-      // console.log("Este es el arreglo de los tamaños sin tratar: ", this.width);
-      this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-      // console.log(
-      //   "Asi se va llenando el textfiel: ",
-      //   this.brickJSON.fieldWidth
-      // );
     },
-    removeWidth(index) {
+    dropWidth(val) {
+      console.log("Aqui va VAAAL: ", val);
+
+      let indexDrop = this.widths.indexOf(val);
+
+      console.log("Aqui va el INDEXXX: ", indexDrop);
+
+      if (indexDrop >= 0) {
+        this.widths.splice(val, 1);
+      }
+    },
+    restoreWidth(val) {
+      let indexRestore = this.widths.indexOf(val);
+      if (indexRestore < 0) {
+        this.widths.push(val);
+      }
+    },
+    removeWidth(index, item) {
       console.log("Este es el index que llega: ", index);
       this.width.splice(index, 1);
+      let a = item.substring(0, 2);
+      this.restoreWidth(a);
     },
     editWidth(item, index) {
       this.widthIndex = index;
@@ -104,21 +131,29 @@ export default {
     },
     openModalWidth(mode, index, a, b) {
       if (mode == 0) {
-        this.fieldWidth = a;
+        this.widthsVal = a;
         this.widthsNumber = b;
         this.widthsText = a + b;
+        this.widthIndex = index;
         this.modalWidths = true;
+        this.$validator.reset();
       } else {
-        this.fieldWidth = "";
+        this.widthsVal = "";
         this.widthsNumber = "";
         this.modalWidths = true;
+        this.widthIndex = -1;
+        this.$validator.reset();
       }
     }
   },
   watch: {
-    whidthInput() {
+    width(val) {
+      console.log(val, "Este es el val");
       this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-      console.log("Asi queda el fieldWidth: ", this.brickJSON.fieldWidth);
+      console.log(
+        "WATCH: Asi queda el fieldWidth: ",
+        this.brickJSON.fieldWidth
+      );
     }
   },
   mounted() {}

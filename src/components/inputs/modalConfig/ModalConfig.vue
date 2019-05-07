@@ -36,13 +36,12 @@
                   v-for="(item, index) in width"
                   close
                   @click="editWidth(item, index)"
-                  @input="removeWidth(index)"
+                  @input="removeWidth(index, item)"
                   :key="index"
                 >
                   <span px-2></span>
                   {{item}}
                 </v-chip>
-                <!-- @change="validateChangeSelect(1)" -->
                 <v-dialog v-model="modalWidths" persistent max-width="30%">
                   <v-card>
                     <v-card-title class="headline">Seleccione el parametro de tamaño del input</v-card-title>
@@ -59,7 +58,6 @@
                           v-validate="'required'"
                           solo
                         ></v-select>
-                        <!-- @change="validateChangeSelect(1)" -->
                       </v-flex>
                       <v-flex lg6 md6 xs12 pr-4>
                         <v-text-field
@@ -134,7 +132,6 @@
                 :error-messages="errors.collect('labelPosition')"
                 v-validate="'required'"
               ></v-select>
-              <!-- @change="validateChangeSelect(1)" -->
             </v-flex>
             <v-flex lg2 md6 xs12 pr-4>
               <v-select
@@ -147,7 +144,6 @@
                 :error-messages="errors.collect('brickType')"
                 v-validate="'required'"
               ></v-select>
-              <!-- @change="validateChangeSelect(1)" -->
             </v-flex>
             <v-flex lg2 md3 xs12 pr-4>
               <v-select
@@ -175,7 +171,6 @@
                   </v-flex>
                 </template>
               </v-select>
-              <!-- @change="validateChangeSelect(1)" -->
             </v-flex>
             <v-flex lg2 md3 xs12 pr-4>
               <v-select
@@ -203,7 +198,6 @@
                   </v-flex>
                 </template>
               </v-select>
-              <!-- @change="validateChangeSelect(1)" -->
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
