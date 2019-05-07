@@ -28,74 +28,65 @@
                 key="fieldValue-input"
               ></v-text-field>
             </v-flex>
-            <v-flex lg4 md6 xs12 pr-4>
-              <v-select
-                v-model="widths"
-                label="fieldWidth"
-                data-vv-as="fieldWidth"
-                key="fieldWidth-input"
-                name="fieldWidth"
-                :error-messages="errors.collect('fieldWidth')"
-                v-validate="'required'"
-                multiple
-                prepend-inner-icon="fa-plus"
-                @click:prepend-inner="modalWidths=true"
-              >
-                <!-- <template slot="selection" slot-scope="widths">
-                  <v-flex px-2 xs12>
-                    <span style="padding-left: 5px;">{{ widths.item }}</span>
-                  </v-flex>
-                </template>-->
-                <!-- <template slot="item" slot-scope="widths">
-                  <v-flex px-2 xs12>
-                    <span style="padding-left: 5px;">{{ widths.item }}</span>
-                  </v-flex>
-                </template>-->
-              </v-select>
-              <!-- @change="validateChangeSelect(1)" -->
-              <v-dialog v-model="modalWidths" persistent max-width="30%">
-                <v-card>
-                  <v-card-title class="headline">Seleccione el parametro de tamaño del input</v-card-title>
-                  <v-layout row wrap px-4>
-                    <v-flex lg6 md6 xs12 pr-4>
-                      <v-select
-                        :items="widths"
-                        v-model="widthsVal"
-                        label="fieldWidth"
-                        data-vv-as="fieldWidth"
-                        key="fieldWidth-input"
-                        name="fieldWidth"
-                        :error-messages="errors.collect('fieldWidth')"
-                        v-validate="'required'"
-                        solo
-                      ></v-select>
-                      <!-- @change="validateChangeSelect(1)" -->
-                    </v-flex>
-                    <v-flex lg6 md6 xs12 pr-4>
-                      <v-text-field
-                        v-model="widthsNumber"
-                        name="widthsNumber"
-                        :error-messages="errors.collect('widthsNumber')"
-                        label="widthsNumber"
-                        class
-                        data-vv-as="widthsNumber"
-                        v-validate="'required'"
-                        key="widthsNumber-input"
-                      ></v-text-field>
-                    </v-flex>
-                  </v-layout>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="green darken-1" flat @click="modalWidths = false">Disagree</v-btn>
-                    <v-btn
-                      color="green darken-1"
-                      flat
-                      @click="modalWidths = false, prueba(widthsVal,widthsNumber)"
-                    >Agree</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-flex>
+            <v-layout lg4 md6 xs12 pr-4 row wrap>
+              <v-flex xs12>
+                <v-subheader>fieldWidth</v-subheader>
+                <v-icon @click="openModalWidth(1)">fa-plus</v-icon>
+                <v-chip
+                  v-for="(item, index) in width"
+                  close
+                  @click="editWidth(item, index)"
+                  @input="removeWidth(index)"
+                  :key="index"
+                >
+                  <span px-2></span>
+                  {{item}}
+                </v-chip>
+                <!-- @change="validateChangeSelect(1)" -->
+                <v-dialog v-model="modalWidths" persistent max-width="30%">
+                  <v-card>
+                    <v-card-title class="headline">Seleccione el parametro de tamaño del input</v-card-title>
+                    <v-layout row wrap px-4>
+                      <v-flex lg6 md6 xs12 pr-4>
+                        <v-select
+                          :items="widths"
+                          v-model="widthsVal"
+                          label="fieldWidth"
+                          data-vv-as="fieldWidth"
+                          key="fieldWidth-input"
+                          name="fieldWidth"
+                          :error-messages="errors.collect('fieldWidth')"
+                          v-validate="'required'"
+                          solo
+                        ></v-select>
+                        <!-- @change="validateChangeSelect(1)" -->
+                      </v-flex>
+                      <v-flex lg6 md6 xs12 pr-4>
+                        <v-text-field
+                          v-model="widthsNumber"
+                          name="widthsNumber"
+                          :error-messages="errors.collect('widthsNumber')"
+                          label="widthsNumber"
+                          class
+                          data-vv-as="widthsNumber"
+                          v-validate="'required|min:1|max:12'"
+                          key="widthsNumber-input"
+                        ></v-text-field>
+                      </v-flex>
+                    </v-layout>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="green darken-1" flat @click="modalWidths = false">Disagree</v-btn>
+                      <v-btn
+                        color="green darken-1"
+                        flat
+                        @click="modalWidths = false, addIndexWidth(widthsVal,widthsNumber)"
+                      >Agree</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-flex>
+            </v-layout>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
                 v-model="brickJSON.dataClass"

@@ -46,10 +46,12 @@ export default {
         hint: ""
       },
       widths: ["xs", "lg", "md", "sm"],
-      width: [],
       widthsVal: "",
       widthsNumber: "",
+      widthsText: "",
+      width: [],
       modalWidths: false,
+      widthIndex: "",
       labelPosition: ["top", "left", "right"],
       append: [
         { name: "", icon: "" },
@@ -73,14 +75,51 @@ export default {
     };
   },
   methods: {
-    prueba(val, val2) {
+    addIndexWidth(val, val2) {
       // console.log(val, val2);
-      let valor = val + val2;
-      console.log(valor);
-      this.width.push(valor);
-      console.log(this.width);
+      this.widthsText = val + val2;
+      // console.log("Esto es lo que va para el arreglo: ", this.widthsText);
+      if (this.width.includes(this.widthsText)) {
+        console.log("Este tamano ya fue agregado");
+      } else {
+        // console.log("Se agrego con exito");
+        this.width.push(this.widthsText);
+      }
+      // console.log("Este es el arreglo de los tamaños sin tratar: ", this.width);
+      this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+      // console.log(
+      //   "Asi se va llenando el textfiel: ",
+      //   this.brickJSON.fieldWidth
+      // );
     },
-    muestra() {}
+    removeWidth(index) {
+      console.log("Este es el index que llega: ", index);
+      this.width.splice(index, 1);
+    },
+    editWidth(item, index) {
+      this.widthIndex = index;
+      let a = item.substring(0, 2);
+      let b = item.substring(2, 4);
+      this.openModalWidth(0, index, a, b);
+    },
+    openModalWidth(mode, index, a, b) {
+      if (mode == 0) {
+        this.fieldWidth = a;
+        this.widthsNumber = b;
+        this.widthsText = a + b;
+        this.modalWidths = true;
+      } else {
+        this.fieldWidth = "";
+        this.widthsNumber = "";
+        this.modalWidths = true;
+      }
+    }
+  },
+  watch: {
+    whidthInput() {
+      this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+      console.log("Asi queda el fieldWidth: ", this.brickJSON.fieldWidth);
+    }
   },
   mounted() {}
 };
