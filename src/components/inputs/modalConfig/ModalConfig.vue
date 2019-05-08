@@ -74,12 +74,12 @@
                     </v-layout>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="green darken-1" flat @click="modalWidths = false">Disagree</v-btn>
+                      <v-btn color="green darken-1" flat @click="modalWidths = false">Cerrar</v-btn>
                       <v-btn
                         color="green darken-1"
                         flat
                         @click="modalWidths = false, addIndexWidth(widthsVal,widthsNumber)"
-                      >Agree</v-btn>
+                      >OK</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-dialog>

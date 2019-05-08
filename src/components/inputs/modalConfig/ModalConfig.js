@@ -79,36 +79,17 @@ export default {
       this.widthsText = val + val2;
       if (this.widthIndex == -1) {
         this.width.push(this.widthsText);
-        console.log(
-          "Este es el arreglo de los tamaños sin tratar: ",
-          this.width
-        );
         this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-        console.log(
-          "Asi se va llenando el textfiel: ",
-          this.brickJSON.fieldWidth
-        );
         this.dropWidth(val);
       } else {
-        console.log("Este es sin la modificacion: ", this.width);
         this.width[this.widthIndex] = this.widthsText;
         this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-        console.log("Este es con la modificacion: ", this.width);
-        console.log(
-          "Este es lo que se le mandara a miguel: ",
-          this.brickJSON.fieldWidth
-        );
       }
     },
     dropWidth(val) {
-      console.log("Aqui va VAAAL: ", val);
-
       let indexDrop = this.widths.indexOf(val);
-
-      console.log("Aqui va el INDEXXX: ", indexDrop);
-
       if (indexDrop >= 0) {
-        this.widths.splice(val, 1);
+        this.widths.splice(indexDrop, 1);
       }
     },
     restoreWidth(val) {
@@ -118,7 +99,6 @@ export default {
       }
     },
     removeWidth(index, item) {
-      console.log("Este es el index que llega: ", index);
       this.width.splice(index, 1);
       let a = item.substring(0, 2);
       this.restoreWidth(a);
@@ -128,6 +108,7 @@ export default {
       let a = item.substring(0, 2);
       let b = item.substring(2, 4);
       this.openModalWidth(0, index, a, b);
+      this.restoreWidth(a); //Este hay que culminarlo
     },
     openModalWidth(mode, index, a, b) {
       if (mode == 0) {
@@ -144,6 +125,10 @@ export default {
         this.widthIndex = -1;
         this.$validator.reset();
       }
+    },
+    closeModalWidth() {
+      this.modalWidths = false;
+      //Culminar esta funciones
     }
   },
   watch: {
