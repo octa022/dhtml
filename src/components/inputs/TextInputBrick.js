@@ -49,36 +49,27 @@ export default {
   },
   data(){
     return {
-      jformBRICK:{
-        "fieldCode" : "", 
-        "fieldValue": "",
-        "fieldWidth":"xs12 md4",
-        "fieldColor":"",
-        "dataClass":"",
-        "dataStyle":"",
-        "label" : "",
-        "labelPosition" : "",
-        "append":"",
-        "prepend":"",  
-        "defaultValue" : "",  
-        "brickType" : "TEXTINPUT",
-        "visible" : true,
-        "prefix":"",
-        "suffix":"",
-        "enabled" : true,
-        "validationRule" : {},
-        "hint" : ""
-      }
+      jformBRICK:this.brickJSON,
+      dateFormat:""
     }
   },
   methods:{
     assingData(val){
       this.jformBRICK = val
-    }
-  },
-  watch:{
-    brickJSON(val){
-      this.jformBRICK = val
+    },
+    updateDateFormat(date){
+      let dt = new Date(date + ' ')
+      var url_l18n = "en"
+      var locale = "en-US"
+      if(url_l18n == "en"){
+          locale = "en-GB"
+      }
+      this.dateFormat = dt.toLocaleString(locale,{
+        "hour12":true,
+        "year":"numeric",
+        "month":"2-digit",
+        "day":"2-digit"
+    })
     }
   }
 }

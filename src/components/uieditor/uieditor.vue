@@ -37,7 +37,7 @@ export default {
                 "append":"",
                 "prepend":"fa-tasks",  
                 "defaultValue" : "",  
-                "brickType" : "checkbox",
+                "brickType" : "datepicker",
                 "visible" : true,
                 "prefix":"das",
                 "suffix":"",
@@ -69,11 +69,12 @@ export default {
                 "defaultValue" : "",  
                 "brickType" : "TEXTINPUT",
                 "visible" : true,
-                "prefix":"Brick",
+                "prefix":"xs",
                 "suffix":"a llegado",
                 "enabled" : true,
                 "validationRule" : {
-                  required:true
+                  required:true,
+                  between:[1,10]
                 },
                 "hint" : ""
               },
