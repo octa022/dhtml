@@ -295,18 +295,18 @@
                           <v-switch
                             disabled
                             v-model="required"
-                            :label="`required: ${required.toString()}`"
+                            :label="`required: ${yes.toString()}`"
                           ></v-switch>
                         </v-flex>
                         <v-flex v-if="rule == 'numeric'" lg2 md6 xs12 pr-4>
                           <v-switch
                             disabled
                             v-model="numeric"
-                            :label="`numeric: ${numeric.toString()}`"
+                            :label="`numeric: ${yes.toString()}`"
                           ></v-switch>
                         </v-flex>
                         <v-flex v-if="rule == 'alpha'" lg2 md6 xs12 pr-4>
-                          <v-switch disabled v-model="alpha" :label="`alpha: ${alpha.toString()}`"></v-switch>
+                          <v-switch disabled v-model="alpha" :label="`alpha: ${yes.toString()}`"></v-switch>
                         </v-flex>
                         <!-- <v-flex v-if="rule == 'min'" lg6 md6 xs12 pr-4>
                           <v-text-field
@@ -344,7 +344,7 @@
                       <v-btn
                         color="green darken-1"
                         flat
-                        @click="modalWidths = false, addIndexWidth(rule,extraVal)"
+                        @click="addValidationRules(rule,extraVal)"
                       >OK</v-btn>
                     </v-card-actions>
                   </v-card>

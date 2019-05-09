@@ -79,7 +79,10 @@ export default {
       required: true,
       numeric: true,
       alpha: true,
-      extraVal: ""
+      extraVal: "",
+      yes: true,
+      ruleIndex: -1,
+      validation: {}
     };
   },
   methods: {
@@ -144,31 +147,47 @@ export default {
     },
     openModalValidationRules(mode, index, a, b) {
       if (mode == 0) {
-        this.widthsVal = a;
+        this.widthsVal = a; //Terminar!!!!!
         this.widthsNumber = b;
         this.widthsText = a + b;
         this.widthIndex = index;
         this.modalRules = true;
         this.$validator.reset();
       } else {
-        this.widthsVal = "";
-        this.widthsNumber = "";
+        this.rule = "";
+        this.extraVal = "";
         this.modalRules = true;
-        this.widthIndex = -1;
+        this.ruleIndex = -1;
         this.$validator.reset();
       }
     },
-    addValidationRules() {
-      // this.widthsText = val + val2;
-      if (this.widthIndex == -1) {
-        this.width.push(this.widthsText);
-        this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-        // this.dropWidth(val);
-      } else {
-        this.width[this.widthIndex] = this.widthsText;
-        this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-        // this.dropWidth(val);
+    addValidationRules(rule, extraVal) {
+      // this.modalRules = false;
+      console.log(
+        "Esto es lo que llega en Rule: ",
+        rule,
+        ", Esto es lo que llega en ExtraVal: ",
+        extraVal
+      );
+      if (this.ruleIndex == -1) {
+        if (extraVal != undefined) {
+          console.log("No llego extraVal");
+          let regla = rule + ":" + this.yes;
+          console.log("Esta es la regla que se debe pushear: ", regla);
+
+          this.validation.push(regla);
+        }
       }
+      // this.widthsText = val + val2;
+      // if (this.widthIndex == -1) {
+      //   this.width.push(this.widthsText);
+      //   this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+      //   this.dropWidth(val);
+      // } else {
+      //   this.width[this.widthIndex] = this.widthsText;
+      //   this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+      //   this.dropWidth(val);
+      // }
     },
     closeModalValidationRules(rule) {
       this.modalRules = false;
@@ -187,6 +206,14 @@ export default {
       console.log(
         "WATCH: Asi queda el fieldWidth: ",
         this.brickJSON.fieldWidth
+      );
+    },
+    regla(val) {
+      console.log(val, "Este es el val de la regla");
+      this.brickJSON.validationRule = this.regla;
+      console.log(
+        "WATCH: Asi queda el validationRule: ",
+        this.brickJSON.validationRule
       );
     }
   },
