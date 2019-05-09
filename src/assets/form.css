@@ -21,14 +21,12 @@ div.flex:not(.label-right):not(.label-left):not(.label-top) > label:first-child 
 /*Posición de los label*/
 div.label-left{
   flex-direction: initial;
-  border: 1px solid
 }
 div.label-right{
   flex-direction: row-reverse;
 }
  div.label-top {
   flex-direction: column;
-  border: 1px solid 
 }
 /*Características del label*/
 div[class*="label-"] > label{
