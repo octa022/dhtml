@@ -19,6 +19,7 @@
   "validationRule" : "",
   "hint" : "",
 */
+import "@/assets/form.css"
 export default {
   props:{
     brickJSON:{
