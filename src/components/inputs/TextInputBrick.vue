@@ -1,5 +1,5 @@
 <template>
-  <v-flex :class="jformBRICK.fieldWidth" label-right  v-if="jformBRICK.visible">
+  <v-flex :class="jformBRICK.fieldWidth+' '+'label-'+jformBRICK.labelPosition" v-if="jformBRICK.visible">
     <label for="">
       {{jformBRICK.label}}
     </label>
