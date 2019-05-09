@@ -63,7 +63,7 @@ export default {
                 "dataClass":"",
                 "dataStyle":"",
                 "label" : "Prueba",
-                "labelPosition" : "",
+                "labelPosition" : "left",
                 "append-icon":"",
                 "prepend-icon":"",  
                 "defaultValue" : "",  
