@@ -1,0 +1,63 @@
+/*
+ * Label Position
+ */
+
+/* E.g
+  <v-flex xs12 label-left>
+    <label for="">Name</label>
+     <v-text-field
+      label="Name"
+    ></v-text-field>
+  </v-flex>
+*/
+
+/*Si no se indica o es errada la posición oculta el label y muestra el input standar*/
+div.flex:not(.label-right):not(.label-left):not(.label-top) > label:first-child {
+  display: none;
+}
+/*Posición de los label*/
+div.label-left{
+  flex-direction: initial;
+}
+div.label-right{
+  flex-direction: row-reverse;
+}
+ div.label-top {
+  flex-direction: column;
+  border: 1px solid
+}
+/*Características del label*/
+div[class*="label-"] > label{
+  font-size: large;
+  display: inline;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/*Ancho label/input*/
+div.label-top  > label, div.label-top .v-input{
+  width: 100%;
+}
+div.label-left > label, div.label-right > label{
+  width: 20%;
+}
+div.label-left .v-input, div.label-right .v-input{
+  width: 80%
+}
+/*Ocultar/mostrar el label que esta dentro del input cuando tenga o no alguna posicion*/
+  div.flex:not(.label-right):not(.label-left):not(.label-top) .v-input label {
+    display: inline;
+  }
+div[class*="label-"] .v-input label{
+  display: none
+}
+/*Móvil*/
+@media screen and (max-width: 600px) {
+  /*Ubicacion en Columna label/input*/
+  div[class*="label-"]{
+    flex-direction: column;
+  }
+  div.label-left > label, div.label-right > label, div.label-left .v-input, div.label-right .v-input{
+    width: 100%;
+  }
+}
