@@ -71,7 +71,15 @@ export default {
         { name: "Copiar", icon: "fa-copy" },
         { name: "Comentarios", icon: "fa-comments" }
       ],
-      brickType: ["textinput", "switch", "checkbox"]
+      brickType: ["textinput", "switch", "checkbox"],
+      // rules: ["required", "min", "max", "alpha", "numeric"],
+      rules: ["required", "max", "alpha", "numeric"],
+      rule: "",
+      modalRules: false,
+      required: true,
+      numeric: true,
+      alpha: true,
+      extraVal: ""
     };
   },
   methods: {
@@ -133,6 +141,43 @@ export default {
       if (confirm) {
         this.dropWidth(widthsVal);
       }
+    },
+    openModalValidationRules(mode, index, a, b) {
+      if (mode == 0) {
+        this.widthsVal = a;
+        this.widthsNumber = b;
+        this.widthsText = a + b;
+        this.widthIndex = index;
+        this.modalRules = true;
+        this.$validator.reset();
+      } else {
+        this.widthsVal = "";
+        this.widthsNumber = "";
+        this.modalRules = true;
+        this.widthIndex = -1;
+        this.$validator.reset();
+      }
+    },
+    addValidationRules() {
+      // this.widthsText = val + val2;
+      if (this.widthIndex == -1) {
+        this.width.push(this.widthsText);
+        this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+        // this.dropWidth(val);
+      } else {
+        this.width[this.widthIndex] = this.widthsText;
+        this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+        // this.dropWidth(val);
+      }
+    },
+    closeModalValidationRules(rule) {
+      this.modalRules = false;
+      console.log(rule);
+
+      // let confirm = this.widths.includes(widthsVal);
+      // if (confirm) {
+      //   this.dropWidth(widthsVal);
+      // }
     }
   },
   watch: {
