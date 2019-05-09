@@ -84,6 +84,7 @@ export default {
       } else {
         this.width[this.widthIndex] = this.widthsText;
         this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
+        this.dropWidth(val);
       }
     },
     dropWidth(val) {
@@ -108,7 +109,7 @@ export default {
       let a = item.substring(0, 2);
       let b = item.substring(2, 4);
       this.openModalWidth(0, index, a, b);
-      this.restoreWidth(a); //Este hay que culminarlo
+      this.restoreWidth(a);
     },
     openModalWidth(mode, index, a, b) {
       if (mode == 0) {
@@ -126,9 +127,12 @@ export default {
         this.$validator.reset();
       }
     },
-    closeModalWidth() {
+    closeModalWidth(widthsVal) {
       this.modalWidths = false;
-      //Culminar esta funciones
+      let confirm = this.widths.includes(widthsVal);
+      if (confirm) {
+        this.dropWidth(widthsVal);
+      }
     }
   },
   watch: {

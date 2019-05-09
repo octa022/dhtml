@@ -31,7 +31,7 @@
             <v-layout lg4 md6 xs12 pr-4 row wrap>
               <v-flex xs12>
                 <v-subheader>fieldWidth</v-subheader>
-                <v-icon @click="openModalWidth(1)">fa-plus</v-icon>
+                <v-icon v-if="widths != ''" @click="openModalWidth(1)">fa-plus</v-icon>
                 <v-chip
                   v-for="(item, index) in width"
                   close
@@ -74,7 +74,7 @@
                     </v-layout>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn color="green darken-1" flat @click="modalWidths = false">Cerrar</v-btn>
+                      <v-btn color="green darken-1" flat @click="closeModalWidth(widthsVal)">Cerrar</v-btn>
                       <v-btn
                         color="green darken-1"
                         flat
