@@ -162,32 +162,22 @@ export default {
       }
     },
     addValidationRules(rule, extraVal) {
-      // this.modalRules = false;
+      this.modalRules = false;
       console.log(
         "Esto es lo que llega en Rule: ",
         rule,
         ", Esto es lo que llega en ExtraVal: ",
         extraVal
       );
-      if (this.ruleIndex == -1) {
-        if (extraVal != undefined) {
-          console.log("No llego extraVal");
-          let regla = rule + ":" + this.yes;
-          console.log("Esta es la regla que se debe pushear: ", regla);
-
-          this.validation.push(regla);
-        }
+      if (!extraVal) {
+        console.log("No llego extraVal");
+        this.validation[rule] = true;
+        console.log("Asi quedo Validation", this.validation);
+      } else {
+        console.log("Llego extraVal");
+        this.validation[rule] = extraVal;
+        console.log("Asi quedo Validation", this.validation);
       }
-      // this.widthsText = val + val2;
-      // if (this.widthIndex == -1) {
-      //   this.width.push(this.widthsText);
-      //   this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-      //   this.dropWidth(val);
-      // } else {
-      //   this.width[this.widthIndex] = this.widthsText;
-      //   this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-      //   this.dropWidth(val);
-      // }
     },
     closeModalValidationRules(rule) {
       this.modalRules = false;
@@ -208,9 +198,9 @@ export default {
         this.brickJSON.fieldWidth
       );
     },
-    regla(val) {
+    validation(val) {
       console.log(val, "Este es el val de la regla");
-      this.brickJSON.validationRule = this.regla;
+      this.brickJSON.validationRule = this.validation;
       console.log(
         "WATCH: Asi queda el validationRule: ",
         this.brickJSON.validationRule
