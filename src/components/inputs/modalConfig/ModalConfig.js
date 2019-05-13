@@ -80,7 +80,6 @@ export default {
       alpha: true,
       extraVal: "",
       yes: true,
-      ruleIndex: -1,
       validation: {}
     };
   },
@@ -150,47 +149,85 @@ export default {
         this.dropWidth(widthsVal);
       }
     },
-    openModalValidationRules(mode, index, a, b) {
+    openModalValidationRules(mode, index, item) {
       if (mode == 0) {
-        this.widthsVal = a; //Terminar!!!!!
-        this.widthsNumber = b;
-        this.widthsText = a + b;
-        this.widthIndex = index;
+        this.rule = index;
+        this.extraVal = item;
         this.modalRules = true;
         this.$validator.reset();
       } else {
         this.rule = "";
         this.extraVal = "";
         this.modalRules = true;
-        this.ruleIndex = -1;
         this.$validator.reset();
       }
     },
     addValidationRules(rule, extraVal) {
-      if (this.ruleIndex == -1) {
-        if (extraVal != undefined) {
-          let regla = rule + ":" + this.yes;
-          this.validation.push(regla);
-        }
+      this.modalRules = false;
+      console.log(
+        "Esto es lo que llega en Rule: ",
+        rule,
+        ", Esto es lo que llega en ExtraVal: ",
+        extraVal
+      );
+      if (!extraVal) {
+        console.log("No llego extraVal");
+        this.validation[rule] = true;
+        console.log("Asi quedo Validation", this.validation);
+      } else {
+        console.log("Llego extraVal");
+        this.validation[rule] = extraVal;
+        console.log("Asi quedo Validation", this.validation);
       }
     },
     closeModalValidationRules(rule) {
       this.modalRules = false;
-      console.log(rule)
+      this.rule = "";
+      this.extraVal = "";
+      this.$validator.reset();
+      console.log(rule);
+    },
+    removeRule(index, item) {
+      console.log(
+        "El index a borrar es: ",
+        index,
+        " El item que llega es: ",
+        item
+      );
+      delete this.validation[index];
+      if (index in this.validation) {
+        console.log("No ejecuto el borrado");
+      } else {
+        console.log("Si ejecuto el borrado");
+      }
+      console.log("Este es Validation", this.validation);
+      this.$validator.reset();
+      this.modalRules = true;
+      this.modalRules = false;
+    },
+    editRule(item, index) {
+      this.openModalValidationRules(0, index, item);
+      // this.restoreWidth(a);
     }
   },
   watch: {
     width(val) {
       this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ")
     },
-    regla(val) {
+    validation(val) {
       console.log(val, "Este es el val de la regla");
-      this.brickJSON.validationRule = this.regla;
+      this.brickJSON.validationRule = this.validation;
+      console.log(
+        "WATCH: Asi queda el validationRule: ",
+        this.brickJSON.validationRule
+      );
     },
-    'brickJSON.brickType':{
-      handler(val){
-        this.$refs.brickinput.assingData(this.brickJSON)
-      }
+    validationRule(val) {
+      console.log("Este es el console del Val del validationRule ", val);
+      console.log(
+        "Este es el console del validationRule ",
+        this.brickJSON.validationRule
+      );
     }
   },
 };
