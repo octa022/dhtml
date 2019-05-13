@@ -1,5 +1,6 @@
 import { Chrome } from "vue-color";
 import textinput from "../TextInputBrick.vue" 
+
 export default {
   components: {
     "chrome-picker": Chrome,
@@ -7,31 +8,11 @@ export default {
   },
   data() {
     return {
-      // brickJSON: {
-      //   fieldCode: "", //text
-      //   fieldValue: "", //text
-      //   fieldWidth: "xs12 md4", //selec multiple
-      //   fieldColor: "", //colorPicker
-      //   dataClass: "", //text
-      //   dataStyle: "", //text
-      //   label: "", //text
-      //   labelPosition: "", //text
-      //   "append-icon": "", //selec
-      //   "prepend-icon": "", //selec
-      //   defaultValue: "", //text
-      //   brickType: "TEXTINPUT", //selec
-      //   visible: true, //Booleand
-      //   prefix: "", selec
-      //   suffix: "", selec
-      //   enabled: true, //Booleand
-      //   validationRule: {}, //Objec Selec
-      //   hint: "" // texr y esto es Place Holder
-      // }
       brickJSON: {
         fieldCode: "",
         fieldValue: "",
         fieldWidth: "",
-        fieldColor: "",
+        fieldColor: "#000000",
         dataClass: "",
         dataStyle: "",
         label: "",
@@ -73,7 +54,34 @@ export default {
         { name: "Copiar", icon: "fa-copy" },
         { name: "Comentarios", icon: "fa-comments" }
       ],
-      brickType: ["textinput", "switch", "checkbox"]
+      brickType: [
+        {
+          text:"Text",
+          value:"textinput"
+        }, 
+        {
+          text:"Switch",
+          value: "switch", 
+        },
+        {
+          text:"Checkbox",
+          value:"checkbox"
+        },
+        {
+          text:"Date",
+          value: "datepicker", 
+        }
+      ],
+      rules: ["required", "max", "alpha", "numeric"],
+      rule: "",
+      modalRules: false,
+      required: true,
+      numeric: true,
+      alpha: true,
+      extraVal: "",
+      yes: true,
+      ruleIndex: -1,
+      validation: {}
     };
   },
   methods: {
@@ -141,16 +149,48 @@ export default {
       if (confirm) {
         this.dropWidth(widthsVal);
       }
+    },
+    openModalValidationRules(mode, index, a, b) {
+      if (mode == 0) {
+        this.widthsVal = a; //Terminar!!!!!
+        this.widthsNumber = b;
+        this.widthsText = a + b;
+        this.widthIndex = index;
+        this.modalRules = true;
+        this.$validator.reset();
+      } else {
+        this.rule = "";
+        this.extraVal = "";
+        this.modalRules = true;
+        this.ruleIndex = -1;
+        this.$validator.reset();
+      }
+    },
+    addValidationRules(rule, extraVal) {
+      if (this.ruleIndex == -1) {
+        if (extraVal != undefined) {
+          let regla = rule + ":" + this.yes;
+          this.validation.push(regla);
+        }
+      }
+    },
+    closeModalValidationRules(rule) {
+      this.modalRules = false;
+      console.log(rule)
     }
   },
   watch: {
     width(val) {
-      console.log(val, "Este es el val");
-      this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
-      console.log(
-        "WATCH: Asi queda el fieldWidth: ",
-        this.brickJSON.fieldWidth
-        );
+      this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ")
+    },
+    regla(val) {
+      console.log(val, "Este es el val de la regla");
+      this.brickJSON.validationRule = this.regla;
+    },
+    'brickJSON.brickType':{
+      handler(val){
+        this.$refs.brickinput.assingData(this.brickJSON)
       }
+    }
   },
 };

@@ -27,7 +27,6 @@ div.label-right{
 }
  div.label-top {
   flex-direction: column;
-  border: 1px solid
 }
 /*Características del label*/
 div[class*="label-"] > label{
@@ -41,13 +40,13 @@ div.label-right label{
   padding-left: 1rem
 }
 /*Ancho label/input*/
-div.label-top  > label, div.label-top .v-input{
+div.label-top  > label, div.label-top .v-input, div.label-top .v-menu {
   width: 100%;
 }
 div.label-left > label, div.label-right > label{
   width: 20%;
 }
-div.label-left .v-input, div.label-right .v-input{
+div.label-left .v-input, div.label-right .v-input, div.label-right .v-menu {
   width: 80%
 }
 /*Ocultar/mostrar el label que esta dentro del input cuando tenga o no alguna posicion*/

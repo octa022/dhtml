@@ -144,6 +144,8 @@
                 :items="brickType"
                 @change="changeField"
                 v-model="brickJSON.brickType"
+                item-text="text"
+                item-value="value"
                 label="brickType"
                 data-vv-as="brickType"
                 key="brickType-input"
@@ -274,6 +276,98 @@
                 key="hint-input"
               ></v-text-field>
             </v-flex>
+            <v-layout lg4 md6 xs12 pr-4 pb-3 row wrap>
+              <v-flex xs12>
+                <v-subheader>Validation Rules</v-subheader>
+                <v-icon v-if="widths != ''" @click="openModalValidationRules(1)">fa-plus</v-icon>
+                <v-chip
+                  v-for="(item, index) in width"
+                  close
+                  @click="editWidth(item, index)"
+                  @input="removeWidth(index, item)"
+                  :key="index"
+                >
+                  <span px-2></span>
+                  {{item}}
+                </v-chip>
+                <v-dialog v-model="modalRules" persistent max-width="40%">
+                  <v-card>
+                    <v-card-title class="headline">Seleccione las reglas ha aplicar</v-card-title>
+                    <v-layout row wrap px-4>
+                      <v-flex lg6 md6 xs12 pr-4>
+                        <v-select
+                          :items="rules"
+                          v-model="rule"
+                          label="Validation Rule"
+                          data-vv-as="Validation Rule"
+                          key="Validation Rule-input"
+                          name="Validation Rule"
+                          :error-messages="errors.collect('Validation Rule')"
+                          v-validate="'required'"
+                          solo
+                        ></v-select>
+                      </v-flex>
+                      <v-layout row wrap>
+                        <v-flex v-if="rule == 'required'" lg2 md6 xs12 pr-4>
+                          <v-switch
+                            disabled
+                            v-model="required"
+                            :label="`required: ${yes.toString()}`"
+                          ></v-switch>
+                        </v-flex>
+                        <v-flex v-if="rule == 'numeric'" lg2 md6 xs12 pr-4>
+                          <v-switch
+                            disabled
+                            v-model="numeric"
+                            :label="`numeric: ${yes.toString()}`"
+                          ></v-switch>
+                        </v-flex>
+                        <v-flex v-if="rule == 'alpha'" lg2 md6 xs12 pr-4>
+                          <v-switch disabled v-model="alpha" :label="`alpha: ${yes.toString()}`"></v-switch>
+                        </v-flex>
+                        <!-- <v-flex v-if="rule == 'min'" lg6 md6 xs12 pr-4>
+                          <v-text-field
+                            v-model="extraVal"
+                            name="minVal"
+                            :error-messages="errors.collect('minVal')"
+                            label="minVal"
+                            class
+                            data-vv-as="minVal"
+                            v-validate
+                            key="minVal-input"
+                          ></v-text-field>
+                        </v-flex>-->
+                        <v-flex v-if="rule == 'max'" lg6 md6 xs12 pr-4>
+                          <v-text-field
+                            v-model="extraVal"
+                            name="maxVal"
+                            :error-messages="errors.collect('maxVal')"
+                            label="maxVal"
+                            class
+                            data-vv-as="maxVal"
+                            v-validate
+                            key="maxVal-input"
+                          ></v-text-field>
+                        </v-flex>
+                      </v-layout>
+                    </v-layout>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        color="green darken-1"
+                        flat
+                        @click="closeModalValidationRules(rule)"
+                      >Cerrar</v-btn>
+                      <v-btn
+                        color="green darken-1"
+                        flat
+                        @click="addValidationRules(rule,extraVal)"
+                      >OK</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-flex>
+            </v-layout>
             <v-flex lg12 md6 xs12 pr-4>
               <chrome-picker disableAlpha v-model="brickJSON.fieldColor"></chrome-picker>
             </v-flex>

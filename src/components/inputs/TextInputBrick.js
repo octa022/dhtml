@@ -28,7 +28,7 @@ export default {
         return{
           "fieldCode" : "", 
           "fieldValue": "",
-          "fieldWidth":"xs12 md4",
+          "fieldWidth":"",
           "fieldColor":"",
           "dataClass":"",
           "dataStyle":"",
@@ -37,7 +37,7 @@ export default {
           "append":"",
           "prepend":"",  
           "defaultValue" : "",  
-          "brickType" : "TEXTINPUT",
+          "brickType" : "",
           "visible" : true,
           "prefix":"",
           "suffix":"",
@@ -56,8 +56,7 @@ export default {
   },
   methods:{
     assingData(val){
-      this.jformBRICK = val
-      console.log("assingData",this.jformBRICK)
+      this.jformBRICK = JSON.parse(JSON.stringify(val))
     },
     updateDateFormat(date){
       let dt = new Date(date + ' ')
@@ -71,7 +70,7 @@ export default {
         "year":"numeric",
         "month":"2-digit",
         "day":"2-digit"
-    })
+      })
     }
   }
 }
