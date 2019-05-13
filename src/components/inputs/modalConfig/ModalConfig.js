@@ -81,7 +81,6 @@ export default {
       alpha: true,
       extraVal: "",
       yes: true,
-      ruleIndex: -1,
       validation: {}
     };
   },
@@ -145,19 +144,16 @@ export default {
         this.dropWidth(widthsVal);
       }
     },
-    openModalValidationRules(mode, index, a, b) {
+    openModalValidationRules(mode, index, item) {
       if (mode == 0) {
-        this.widthsVal = a; //Terminar!!!!!
-        this.widthsNumber = b;
-        this.widthsText = a + b;
-        this.widthIndex = index;
+        this.rule = index;
+        this.extraVal = item;
         this.modalRules = true;
         this.$validator.reset();
       } else {
         this.rule = "";
         this.extraVal = "";
         this.modalRules = true;
-        this.ruleIndex = -1;
         this.$validator.reset();
       }
     },
@@ -181,12 +177,32 @@ export default {
     },
     closeModalValidationRules(rule) {
       this.modalRules = false;
+      this.rule = "";
+      this.extraVal = "";
+      this.$validator.reset();
       console.log(rule);
-
-      // let confirm = this.widths.includes(widthsVal);
-      // if (confirm) {
-      //   this.dropWidth(widthsVal);
-      // }
+    },
+    removeRule(index, item) {
+      console.log(
+        "El index a borrar es: ",
+        index,
+        " El item que llega es: ",
+        item
+      );
+      delete this.validation[index];
+      if (index in this.validation) {
+        console.log("No ejecuto el borrado");
+      } else {
+        console.log("Si ejecuto el borrado");
+      }
+      console.log("Este es Validation", this.validation);
+      this.$validator.reset();
+      this.modalRules = true;
+      this.modalRules = false;
+    },
+    editRule(item, index) {
+      this.openModalValidationRules(0, index, item);
+      // this.restoreWidth(a);
     }
   },
   watch: {
@@ -203,6 +219,13 @@ export default {
       this.brickJSON.validationRule = this.validation;
       console.log(
         "WATCH: Asi queda el validationRule: ",
+        this.brickJSON.validationRule
+      );
+    },
+    validationRule(val) {
+      console.log("Este es el console del Val del validationRule ", val);
+      console.log(
+        "Este es el console del validationRule ",
         this.brickJSON.validationRule
       );
     }

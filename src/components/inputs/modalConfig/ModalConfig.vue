@@ -262,15 +262,16 @@
             <v-layout lg4 md6 xs12 pr-4 pb-3 row wrap>
               <v-flex xs12>
                 <v-subheader>Validation Rules</v-subheader>
-                <v-icon v-if="widths != ''" @click="openModalValidationRules(1)">fa-plus</v-icon>
+                <v-icon v-if="validation != ''" @click="openModalValidationRules(1)">fa-plus</v-icon>
                 <v-chip
-                  v-for="(item, index) in width"
+                  v-for="(item, index) in validation"
                   close
-                  @click="editWidth(item, index)"
-                  @input="removeWidth(index, item)"
-                  :key="index"
+                  @click="editRule(item, index)"
+                  @input="removeRule(index, item)"
+                  :key="item"
                 >
                   <span px-2></span>
+                  {{index}} :
                   {{item}}
                 </v-chip>
                 <v-dialog v-model="modalRules" persistent max-width="40%">
