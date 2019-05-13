@@ -6,6 +6,7 @@
           <v-layout row wrap>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
+                @change="changeField"
                 v-model="brickJSON.fieldCode"
                 name="fieldCode"
                 :error-messages="errors.collect('fieldCode')"
@@ -18,6 +19,7 @@
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
+                @change="changeField"
                 v-model="brickJSON.fieldValue"
                 name="fieldValue"
                 :error-messages="errors.collect('fieldValue')"
@@ -88,6 +90,7 @@
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
                 v-model="brickJSON.dataClass"
+                @change="changeField"
                 name="dataClass"
                 :error-messages="errors.collect('dataClass')"
                 label="dataClass"
@@ -100,6 +103,7 @@
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
                 v-model="brickJSON.dataStyle"
+                @change="changeField"
                 name="dataStyle"
                 :error-messages="errors.collect('dataStyle')"
                 label="dataStyle"
@@ -112,6 +116,7 @@
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
                 v-model="brickJSON.label"
+                @change="changeField"
                 name="label"
                 :error-messages="errors.collect('label')"
                 label="Label"
@@ -124,6 +129,7 @@
             <v-flex lg2 md6 xs12 pr-4>
               <v-select
                 :items="labelPosition"
+                @change="changeField"
                 v-model="brickJSON.labelPosition"
                 label="labelPosition"
                 data-vv-as="labelPosition"
@@ -136,6 +142,7 @@
             <v-flex lg2 md6 xs12 pr-4>
               <v-select
                 :items="brickType"
+                @change="changeField"
                 v-model="brickJSON.brickType"
                 label="brickType"
                 data-vv-as="brickType"
@@ -147,6 +154,7 @@
             </v-flex>
             <v-flex lg2 md3 xs12 pr-4>
               <v-select
+                @change="changeField"
                 :items="append"
                 v-model="brickJSON.append"
                 label="append"
@@ -174,6 +182,7 @@
             </v-flex>
             <v-flex lg2 md3 xs12 pr-4>
               <v-select
+                @change="changeField"
                 :items="prepend"
                 v-model="brickJSON.prepend"
                 label="prepend"
@@ -201,6 +210,7 @@
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
+                @change="changeField"
                 v-model="brickJSON.defaultValue"
                 name="defaultValue"
                 :error-messages="errors.collect('defaultValue')"
@@ -213,18 +223,21 @@
             </v-flex>
             <v-flex lg2 md6 xs12 pr-4>
               <v-switch
+                @change="changeField"
                 v-model="brickJSON.visible"
                 :label="`Visible: ${brickJSON.visible.toString()}`"
               ></v-switch>
             </v-flex>
             <v-flex lg2 md6 xs12 pr-4>
               <v-switch
+                @change="changeField"
                 v-model="brickJSON.enabled"
                 :label="`Enabled: ${brickJSON.enabled.toString()}`"
               ></v-switch>
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
+                @change="changeField"
                 v-model="brickJSON.prefix"
                 name="prefix"
                 :error-messages="errors.collect('prefix')"
@@ -237,6 +250,7 @@
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
+                @change="changeField"
                 v-model="brickJSON.suffix"
                 name="suffix"
                 :error-messages="errors.collect('suffix')"
@@ -249,6 +263,7 @@
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
+                @change="changeField"
                 v-model="brickJSON.hint"
                 name="hint"
                 :error-messages="errors.collect('hint')"
@@ -264,6 +279,12 @@
             </v-flex>
           </v-layout>
         </v-form>
+      </v-flex>
+      <v-flex xs12>
+        <v-alert outline color="primary" type="info" :value="true">
+          <h1>Ejemplo</h1>
+          <brickinput ref="brickinput"></brickinput>
+        </v-alert>
       </v-flex>
     </v-layout>
   </v-container>

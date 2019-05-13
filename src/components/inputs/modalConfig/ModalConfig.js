@@ -1,7 +1,9 @@
 import { Chrome } from "vue-color";
+import textinput from "../TextInputBrick.vue" 
 export default {
   components: {
-    "chrome-picker": Chrome
+    "chrome-picker": Chrome,
+    "brickinput":textinput
   },
   data() {
     return {
@@ -75,6 +77,9 @@ export default {
     };
   },
   methods: {
+    changeField(){
+      this.$refs.brickinput.assingData(this.brickJSON)       
+    },
     addIndexWidth(val, val2) {
       this.widthsText = val + val2;
       if (this.widthIndex == -1) {
@@ -86,11 +91,13 @@ export default {
         this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ");
         this.dropWidth(val);
       }
+      this.changeField()
     },
     dropWidth(val) {
       let indexDrop = this.widths.indexOf(val);
       if (indexDrop >= 0) {
         this.widths.splice(indexDrop, 1);
+        this.changeField()
       }
     },
     restoreWidth(val) {
@@ -103,6 +110,7 @@ export default {
       this.width.splice(index, 1);
       let a = item.substring(0, 2);
       this.restoreWidth(a);
+      this.changeField()
     },
     editWidth(item, index) {
       this.widthIndex = index;
@@ -142,8 +150,7 @@ export default {
       console.log(
         "WATCH: Asi queda el fieldWidth: ",
         this.brickJSON.fieldWidth
-      );
-    }
+        );
+      }
   },
-  mounted() {}
 };

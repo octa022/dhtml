@@ -57,6 +57,7 @@ export default {
   methods:{
     assingData(val){
       this.jformBRICK = val
+      console.log("assingData",this.jformBRICK)
     },
     updateDateFormat(date){
       let dt = new Date(date + ' ')
