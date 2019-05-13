@@ -166,7 +166,7 @@
                 :error-messages="errors.collect('append')"
                 v-validate
                 item-text="name"
-                item-value="name"
+                item-value="icon"
               >
                 <template slot="selection" slot-scope="append">
                   <v-flex px-2 xs12>
@@ -194,7 +194,7 @@
                 :error-messages="errors.collect('prepend')"
                 v-validate
                 item-text="name"
-                item-value="name"
+                item-value="icon"
               >
                 <template slot="selection" slot-scope="prepend">
                   <v-flex px-2 xs12>
