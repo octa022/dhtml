@@ -87,6 +87,9 @@ export default {
     changeField(){
       this.$refs.brickinput.assingData(this.brickJSON)       
     },
+    getBrickJson(){
+      return this.brickJSON
+    },
     addIndexWidth(val, val2) {
       this.widthsText = val + val2;
       if (this.widthIndex == -1) {

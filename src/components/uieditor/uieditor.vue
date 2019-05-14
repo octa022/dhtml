@@ -21,67 +21,67 @@ export default {
   data(){
     return {
       comps:[
-        {
-          tag: formfields,
-          options:{
-            props:{
-              brickJSON:{
-                "fieldCode" : "field1", 
-                "fieldValue": "",
-                "fieldWidth":"xs12 md8",
-                "fieldColor":"blue-grey",
-                "dataClass":"",
-                "dataStyle":"",
-                "label" : "Chavista sin sentido",
-                "labelPosition" : "left",
-                "append":"",
-                "prepend":"fa-tasks",  
-                "defaultValue" : "",  
-                "brickType" : "datepicker",
-                "visible" : true,
-                "prefix":"das",
-                "suffix":"",
-                "enabled" : true,
-                "validationRule" : {
-                  required:true
-                },
-                "hint" : ""
-              },
-            },
-            key:"brickprueba"
-          }
-        },
-        {
-          tag: formfields,
-          options:{
-            props:{
-              brickJSON:{
-                "fieldCode" : "field2", 
-                "fieldValue": "",
-                "fieldWidth":"xs12 md6",
-                "fieldColor":"green",
-                "dataClass":"",
-                "dataStyle":"",
-                "label" : "Prueba",
-                "labelPosition" : "top",
-                "append-icon":"",
-                "prepend-icon":"",  
-                "defaultValue" : "",  
-                "brickType" : "TEXTINPUT",
-                "visible" : true,
-                "prefix":"xs",
-                "suffix":"a llegado",
-                "enabled" : true,
-                "validationRule" : {
-                  required:true,
-                  between:[1,10]
-                },
-                "hint" : ""
-              },
-            },
-            key:"brickprueba2"
-          }
-        },
+        // {
+        //   tag: formfields,
+        //   options:{
+        //     props:{
+        //       brickJSON:{
+        //         "fieldCode" : "field1", 
+        //         "fieldValue": "",
+        //         "fieldWidth":"xs12 md8",
+        //         "fieldColor":"blue-grey",
+        //         "dataClass":"",
+        //         "dataStyle":"",
+        //         "label" : "Chavista sin sentido",
+        //         "labelPosition" : "left",
+        //         "append":"",
+        //         "prepend":"fa-tasks",  
+        //         "defaultValue" : "",  
+        //         "brickType" : "datepicker",
+        //         "visible" : true,
+        //         "prefix":"das",
+        //         "suffix":"",
+        //         "enabled" : true,
+        //         "validationRule" : {
+        //           required:true
+        //         },
+        //         "hint" : ""
+        //       },
+        //     },
+        //     key:"brickprueba"
+        //   }
+        // },
+        // {
+        //   tag: formfields,
+        //   options:{
+        //     props:{
+        //       brickJSON:{
+        //         "fieldCode" : "field2", 
+        //         "fieldValue": "",
+        //         "fieldWidth":"xs12 md6",
+        //         "fieldColor":"green",
+        //         "dataClass":"",
+        //         "dataStyle":"",
+        //         "label" : "Prueba",
+        //         "labelPosition" : "top",
+        //         "append-icon":"",
+        //         "prepend-icon":"",  
+        //         "defaultValue" : "",  
+        //         "brickType" : "TEXTINPUT",
+        //         "visible" : true,
+        //         "prefix":"xs",
+        //         "suffix":"a llegado",
+        //         "enabled" : true,
+        //         "validationRule" : {
+        //           required:true,
+        //           between:[1,10]
+        //         },
+        //         "hint" : ""
+        //       },
+        //     },
+        //     key:"brickprueba2"
+        //   }
+        // },
         //{
         //   tag:footer,
         //   options:{
