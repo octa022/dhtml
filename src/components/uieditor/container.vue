@@ -16,7 +16,7 @@
       <toolspanel @createElement="addElement($event)"></toolspanel>
     </v-navigation-drawer>
    <v-btn
-      v-if="$route.name === 'create' && !$store.getters.getDrawerRight" 
+      v-if="!$store.getters.getDrawerRight" 
       @click.prevent="$store.dispatch('setDrawerRight')"
       v-show="!hidden"
       color="grey darken-2"
