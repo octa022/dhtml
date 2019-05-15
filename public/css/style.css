@@ -1,6 +1,6 @@
 /*Tools Panel*/
 button.[class*="sec"] {
-  height: 4rem
+  height: 4rem;
 }
 button.sec2 > div {
   border: 1px dashed;
