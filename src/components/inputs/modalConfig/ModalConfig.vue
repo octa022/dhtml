@@ -102,19 +102,6 @@
             </v-flex>
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
-                v-model="brickJSON.dataStyle"
-                @change="changeField"
-                name="dataStyle"
-                :error-messages="errors.collect('dataStyle')"
-                label="dataStyle"
-                class
-                data-vv-as="dataStyle"
-                v-validate="'required'"
-                key="dataStyle-input"
-              ></v-text-field>
-            </v-flex>
-            <v-flex lg4 md6 xs12 pr-4>
-              <v-text-field
                 v-model="brickJSON.label"
                 @change="changeField"
                 name="label"
@@ -240,32 +227,6 @@
             <v-flex lg4 md6 xs12 pr-4>
               <v-text-field
                 @change="changeField"
-                v-model="brickJSON.prefix"
-                name="prefix"
-                :error-messages="errors.collect('prefix')"
-                label="prefix"
-                class
-                data-vv-as="prefix"
-                v-validate="'required'"
-                key="prefix-input"
-              ></v-text-field>
-            </v-flex>
-            <v-flex lg4 md6 xs12 pr-4>
-              <v-text-field
-                @change="changeField"
-                v-model="brickJSON.suffix"
-                name="suffix"
-                :error-messages="errors.collect('suffix')"
-                label="suffix"
-                class
-                data-vv-as="suffix"
-                v-validate="'required'"
-                key="suffix-input"
-              ></v-text-field>
-            </v-flex>
-            <v-flex lg4 md6 xs12 pr-4>
-              <v-text-field
-                @change="changeField"
                 v-model="brickJSON.hint"
                 name="hint"
                 :error-messages="errors.collect('hint')"
@@ -326,18 +287,6 @@
                         <v-flex v-if="rule == 'alpha'" lg2 md6 xs12 pr-4>
                           <v-switch disabled v-model="alpha" :label="`alpha: ${yes.toString()}`"></v-switch>
                         </v-flex>
-                        <!-- <v-flex v-if="rule == 'min'" lg6 md6 xs12 pr-4>
-                          <v-text-field
-                            v-model="extraVal"
-                            name="minVal"
-                            :error-messages="errors.collect('minVal')"
-                            label="minVal"
-                            class
-                            data-vv-as="minVal"
-                            v-validate
-                            key="minVal-input"
-                          ></v-text-field>
-                        </v-flex>-->
                         <v-flex v-if="rule == 'max'" lg6 md6 xs12 pr-4>
                           <v-text-field
                             v-model="extraVal"
@@ -369,9 +318,6 @@
                 </v-dialog>
               </v-flex>
             </v-layout>
-            <v-flex lg12 md6 xs12 pr-4>
-              <chrome-picker disableAlpha v-model="brickJSON.fieldColor"></chrome-picker>
-            </v-flex>
           </v-layout>
         </v-form>
       </v-flex>

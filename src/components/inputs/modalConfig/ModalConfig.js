@@ -1,9 +1,7 @@
-import { Chrome } from "vue-color";
 import textinput from "../TextInputBrick.vue" 
 
 export default {
   components: {
-    "chrome-picker": Chrome,
     "brickinput":textinput
   },
   data() {
@@ -12,9 +10,7 @@ export default {
         fieldCode: "",
         fieldValue: "",
         fieldWidth: "",
-        fieldColor: "#000000",
         dataClass: "",
-        dataStyle: "",
         label: "",
         labelPosition: "",
         append: "",
@@ -22,8 +18,6 @@ export default {
         defaultValue: "",
         brickType: "",
         visible: true,
-        prefix: "",
-        suffix: "",
         enabled: true,
         validationRule: {},
         hint: ""
@@ -66,10 +60,6 @@ export default {
         {
           text:"Checkbox",
           value:"checkbox"
-        },
-        {
-          text:"Date",
-          value: "datepicker", 
         }
       ],
       rules: ["required", "max", "alpha", "numeric"],
@@ -214,7 +204,7 @@ export default {
     }
   },
   watch: {
-    width(val) {
+    width() {
       this.brickJSON.fieldWidth = this.width.toString().replace(/,/g, " ")
     },
     validation(val) {

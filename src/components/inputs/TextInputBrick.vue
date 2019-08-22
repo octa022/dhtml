@@ -7,12 +7,8 @@
       v-if="jformBRICK.brickType.toUpperCase() == 'TEXTINPUT'"
       :append-icon="jformBRICK.append"
       :prepend-icon="jformBRICK.prepend"
-      :prefix="jformBRICK.prefix"
-      :suffix="jformBRICK.suffix"
       :id="jformBRICK.fieldCode"
       :class="jformBRICK.dataClass"
-      :color="jformBRICK.fieldColor"
-      :style="jformBRICK.dataStyle"
       :name="jformBRICK.fieldCode"
       :error-messages="errors.collect(jformBRICK.fieldCode)"
       :label="jformBRICK.label"
@@ -26,12 +22,8 @@
       v-if="jformBRICK.brickType.toUpperCase() == 'CHECKBOX'"
       :append-icon="jformBRICK.append"
       :prepend-icon="jformBRICK.prepend"
-      :prefix="jformBRICK.prefix"
-      :suffix="jformBRICK.suffix"
       :id="jformBRICK.fieldCode"
       :class="jformBRICK.dataClass"
-      :color="jformBRICK.fieldColor"
-      :style="jformBRICK.dataStyle"
       :name="jformBRICK.fieldCode"
       :error-messages="errors.collect(jformBRICK.fieldCode)"
       :label="jformBRICK.label"
@@ -45,12 +37,8 @@
       v-if="jformBRICK.brickType.toUpperCase() == 'SWITCH'"
       :append-icon="jformBRICK.append"
       :prepend-icon="jformBRICK.prepend"
-      :prefix="jformBRICK.prefix"
-      :suffix="jformBRICK.suffix"
       :id="jformBRICK.fieldCode"
       :class="jformBRICK.dataClass"
-      :color="jformBRICK.fieldColor"
-      :style="jformBRICK.dataStyle"
       :name="jformBRICK.fieldCode"
       :error-messages="errors.collect(jformBRICK.fieldCode)"
       :label="jformBRICK.label"
@@ -60,57 +48,6 @@
       :value="jformBRICK.defaultValue"
       v-validate="jformBRICK.validationRule"
     ></v-switch>
-    <v-menu
-      v-if="jformBRICK.brickType.toUpperCase() == 'DATEPICKER'"
-      :ref="jformBRICK.fieldCode"
-      :close-on-content-click="false"
-      :nudge-right="40"
-      lazy
-      transition="scale-transition"
-      offset-y
-      full-width
-      :return-value.sync="jformBRICK.defaultValue"
-      min-width="290px"
-    >
-      <v-text-field
-        slot="activator"
-        :append-icon="jformBRICK.append"
-        :prepend-icon="jformBRICK.prepend"
-        :prefix="jformBRICK.prefix"
-        :suffix="jformBRICK.suffix"
-        :id="jformBRICK.fieldCode"
-        v-model="dateFormat"
-        :class="jformBRICK.dataClass"
-        :color="jformBRICK.fieldColor"
-        :style="jformBRICK.dataStyle"
-        :name="jformBRICK.fieldCode"
-        :error-messages="errors.collect(jformBRICK.fieldCode)"
-        :label="jformBRICK.label"
-        :data-vv-as="jformBRICK.label"
-        :placeholder="jformBRICK.hint"
-        :disabled="!jformBRICK.enabled"
-        v-validate="jformBRICK.validationRule"
-      />
-      <v-date-picker
-        v-model="jformBRICK.defaultValue"
-        @input="updateDateFormat(jformBRICK.defaultValue)"
-        scrollable
-      >
-        <!-- v-model="order.date"  -->
-        <!-- @input="dateFormat(order.date)" -->
-        <v-spacer></v-spacer>
-        <v-btn
-          flat
-          color="primary"
-          @click="$refs[jformBRICK.fieldCode].callDeactivate(),dateFormat=''"
-        >Cancelar</v-btn>
-        <v-btn
-          flat
-          color="primary"
-          @click="$refs[jformBRICK.fieldCode].save(jformBRICK.defaultValue)"
-        >Listo</v-btn>
-      </v-date-picker>
-    </v-menu>
   </v-flex>
 </template>
 <script src="./TextInputBrick.js"></script>

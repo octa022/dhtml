@@ -64,8 +64,7 @@
 <script>
   export default {
     props:{
-      idname:String,
-      parent:String,
+      idname:Number,
       mode:Number
     },
     methods:{
